@@ -1,7 +1,7 @@
 {
   "name": "popular_events",
   "version": "1.0.0",
-  "description": "Popular Events",
+  "description": "Foodie Cities",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
