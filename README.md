@@ -23,11 +23,10 @@ git clone https://github.com/a-ge/foodie_cities.git
 ```
 Create a `.env` file in the client folder and save the following in the file:
 ```
-REACT_APP_YELP_CLIENT_ID=YOUR CLIENT ID
-REACT_APP_YELP_API_KEY=YOUR KEY
+YELP_API_KEY=YOUR KEY
+```
 ```
 cd foodie_cities
-```
 ```
 Install dependencies:
 ```
