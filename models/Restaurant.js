@@ -1,6 +1,6 @@
 const moongoose = require('mongoose');
 
-const UserSchema = mongoose.Schema({
+const RestaurantSchema = mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -16,7 +16,12 @@ const UserSchema = mongoose.Schema({
     count: {
         type: Number,
         required: true
+    },
+    url: {
+        type: String,
+        required: true 
     }
 });
 
-module.exports = mongoose.model('restaurant', UserSchema);
+module.exports = mongoose.model('restaurant', RestaurantSchema);
+
