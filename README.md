@@ -17,7 +17,7 @@ Foodie Cities is a full stack MERN web application that allows users to view the
 ## Setup/Installation
 Get Client ID and Key from [Yelp](https://www.yelp.com/fusion)
 
-On your local machine, go to the directory where you want to work and clone the Fun Cheap Bay Area repository:
+On your local machine, go to the directory where you want to work and clone the Foodie Cities repository:
 ```
 git clone https://github.com/a-ge/foodie_cities.git
 ```
@@ -25,15 +25,18 @@ Create a `.env` file in the client folder and save the following in the file:
 ```
 YELP_API_KEY=YOUR KEY
 ```
-```
-cd foodie_cities
-```
-Install dependencies:
+In the foodie_cities project directory, install dependencies:
 ```
 npm install
 cd client
 npm install
 cd ..
+```
+Go to [MongoDB](https://www.mongodb.com/), login or create an account.
+  - Follow instructions to build a new cluster.
+  - Under Security, click 'Database Access' and follow instructions to add new user.
+  - Under Atlas, click 'Clusters'. Then under this project cluster, click 'Connect'. Then select 'Connect Your Application'. Copy the "Connection String Only" string provided.
+In the config directory of the project on your local computer, create a default.json file and paste the "Connection String Only" string in the file.
 ```
 Run the app:
 ```
