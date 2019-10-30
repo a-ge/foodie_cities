@@ -1,7 +1,3 @@
-require('dotenv').config();
-
-const USER_PW = process.env.MONGODB_USER_PW;
-
 {
-  "mongoURI": "mongodb+srv://a-ge:" + USER_PW + "@foodiecities-a43zh.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://a-ge:foodie123@foodiecities-a43zh.mongodb.net/test?retryWrites=true&w=majority"
 }
