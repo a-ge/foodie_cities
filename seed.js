@@ -13,7 +13,7 @@ function callYelp(i) {
     const response = client.search({
         term: 'restaurants',
         location: locations[i],
-        limit: 1,
+        limit: 10,
         sort_by: 'review_count'
    }).catch(e => {
      console.log(e);
@@ -28,7 +28,6 @@ async function createJSONFile() {
     const resp = await callYelp(i)
     restObjArray.push.apply(restObjArray, resp.jsonBody.businesses)
   }
-  console.log(restObjArray);
 
   let data = JSON.stringify(restObjArray);
 
