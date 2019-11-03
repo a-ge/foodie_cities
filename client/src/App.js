@@ -4,14 +4,10 @@ import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
 
-import { Provider } from 'react-redux';
-import store from './store';
-
 import './App.css';
 
 const App = () => {
   return (
-    <Provider store={store}>
       <Router>
         <Fragment>
         <Navbar/>
@@ -23,7 +19,6 @@ const App = () => {
           </div>
         </Fragment>
       </Router>
-    </Provider>
   );
 }
 
