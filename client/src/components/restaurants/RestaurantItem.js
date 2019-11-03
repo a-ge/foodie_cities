@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 const RestaurantItem = ({ restaurant }) => {
 
@@ -10,7 +9,4 @@ const RestaurantItem = ({ restaurant }) => {
   );
 };
 
-
-export default connect(
-  null
-)(RestaurantItem);
+export default RestaurantItem

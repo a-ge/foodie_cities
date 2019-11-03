@@ -1,6 +1,6 @@
 'use strict';
 
-const fs = require('fs');
+const fs= require('fs');
 
 require('dotenv').config();
 const yelp = require('yelp-fusion');
@@ -13,7 +13,7 @@ function callYelp(i) {
     const response = client.search({
         term: 'restaurants',
         location: locations[i],
-        limit: 10,
+        limit: 2,
         sort_by: 'review_count'
    }).catch(e => {
      console.log(e);
@@ -26,12 +26,13 @@ async function createJSONFile() {
 
   for (let i=0; i < locations.length; i++) {
     const resp = await callYelp(i)
-    restObjArray.push.apply(restObjArray, resp.jsonBody.businesses)
+    // resp = JSON.parse(resp)
+    restObjArray.push(resp.jsonBody.businesses)
   }
 
   let data = JSON.stringify(restObjArray);
 
-  fs.writeFile('restaurants.json', data, (err) => {
+  fs.writeFile('./client/src/restaurants_data.json', data, (err) => {
       if (err) throw err;
       console.log('Data written to file');
   });
