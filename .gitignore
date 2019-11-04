@@ -15,4 +15,4 @@ yarn-error.log*%
 .env
 config/default.json
 
-restaurants.json
+/client/src/restaurants.json
