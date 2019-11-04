@@ -25,9 +25,10 @@ async function createJSONFile() {
   const restObjArray = []
 
   for (let i=0; i < locations.length; i++) {
+    const dict = {}
     const resp = await callYelp(i)
-    // resp = JSON.parse(resp)
-    restObjArray.push(resp.jsonBody.businesses)
+    dict[locations[i]] = resp.jsonBody.businesses
+    restObjArray.push(dict)
   }
 
   let data = JSON.stringify(restObjArray);
