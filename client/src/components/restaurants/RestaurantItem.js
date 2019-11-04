@@ -4,7 +4,7 @@ const RestaurantItem = ({ restaurant }) => {
 
   return (
     <div>
-        Item
+        {restaurant.name}
     </div>
   );
 };
