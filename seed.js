@@ -7,13 +7,13 @@ const yelp = require('yelp-fusion');
 const API_KEY = process.env.YELP_API_KEY;
 const client = yelp.client(API_KEY);
 
-const locations = ['san francisco, ca', 'oakland, ca', 'berkeley, ca']
+const locations = ['San Francisco, CA', 'New York, NY', 'Atlanta, GA']
 
 function callYelp(i) {
     const response = client.search({
         term: 'restaurants',
         location: locations[i],
-        limit: 2,
+        limit: 10,
         sort_by: 'review_count'
    }).catch(e => {
      console.log(e);
