@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 app.use(express.json());
 
@@ -28,22 +28,3 @@ app.use('/favorites', favoritesRouter);
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
-
-
-
-
-
-// // Connect Database
-// connectDB();
-//
-// app.get('/', (req, res) =>
-//     res.json({ msg: "Welcome to the Popular Events API..." })
-// );
-//
-// // Define Routes
-// // app.use('api/events', require('./routes/events'));
-//
-
-
-
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
