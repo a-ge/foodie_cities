@@ -1,6 +1,6 @@
 import { GET_FAV_RESTAURANTS, SET_LOADING, FAV_RESTAURANTS_ERROR } from './types';
 
-export const getRestaurants = () => async dispatch => {
+export const getFavRestaurants = () => async dispatch => {
   try {
     setLoading();
 
