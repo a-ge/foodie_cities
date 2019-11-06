@@ -1,4 +1,4 @@
-import { GET_RESTAURANTS, SET_LOADING, RESTAURANTS_ERROR} from '../actions/types';
+import { GET_FAV_RESTAURANTS, SET_LOADING, FAV_RESTAURANTS_ERROR} from '../actions/types';
 
 const initialState = {
   restaurants: null,
@@ -8,7 +8,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch(action.type) {
-    case GET_RESTAURANTS:
+    case GET_FAV_RESTAURANTS:
       return {
         ...state,
         restaurants: action.payload,
@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
         ...state,
         loading: true
       };
-    case RESTAURANTS_ERROR:
+    case FAV_RESTAURANTS_ERROR:
       console.error(action.payload);
       return {
         ...state,

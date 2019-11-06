@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 import { connect } from 'react-redux';
 import RestaurantItem from './RestaurantItem';
 // import { getRestaurants } from '../actions/Actions';
