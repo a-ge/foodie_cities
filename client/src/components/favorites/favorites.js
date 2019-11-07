@@ -11,20 +11,17 @@ const FavRestaurants = () => {
     axios.post('http://localhost:5000/favorites/add', {restaurant_id: 1, user_id: 2, status: "went"});
     setCheckHeart(!checkHeart);
     console.log("check heart is", checkHeart);
+    fetchData()
   };
 
-  const fetchFave = async () => {
-        const response = await axios.get(
-          'http://localhost:5000/favorites/'
-        );
-        console.log("response...", response.data)
-        setFavorites(response.data);
+  async function fetchData() {
+    const res = await axios.get('http://localhost:5000/favorites/')
+    setFavorites(res.data.map(c => c.data));
   }
 
   useEffect(() => {
-    fetchFave();
-  },[favorites]);
-
+    console.log(favorites)
+  }, [favorites]);
 
   return (
     <div>
