@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
-const FavRestaurants = () => {
+const Bookmarks = () => {
 
   const [favorites, setFavorites] = useState([]);
   const [checkHeart, setCheckHeart] = useState(false);
@@ -38,4 +38,4 @@ const FavRestaurants = () => {
   );
 };
 
-export default FavRestaurants
+export default Bookmarks
