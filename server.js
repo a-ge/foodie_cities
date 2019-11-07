@@ -21,11 +21,11 @@ connection.once('open', () => {
 
 const restaurantsRouter = require('./routes/restaurants');
 const usersRouter = require('./routes/users');
-const favoritesRouter = require('./routes/favorites');
+const bookmarksRouter = require('./routes/bookmarks');
 
 app.use('/restaurants', restaurantsRouter);
 app.use('/users', usersRouter);
-app.use('/favorites', favoritesRouter);
+app.use('/bookmarks', bookmarksRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

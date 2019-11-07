@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Restaurants from '../restaurants/Restaurants';
 import restaurants_data from '../../restaurants_data.json';
-import Favorites from '../favorites/favorites';
+import Bookmarks from '../bookmarks/Bookmarks';
 
 const Home = () => {
 
@@ -15,7 +15,7 @@ const Home = () => {
                 })
             }
             <Restaurants city={city}/>
-            <Favorites />
+            <Bookmarks />
         </div>
     )
 }
