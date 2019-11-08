@@ -16,6 +16,7 @@ Foodie Cities is a full stack MERN (MongoDB, Express, React/Redux, NodeJS) web a
 
 <a name="Requirements"/></a>
 MongoDB shell version v4.2.1
+<br>
 Node v10.16.0
 
 <a name="installation"/></a>
