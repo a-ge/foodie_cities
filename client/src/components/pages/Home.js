@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Restaurants from '../restaurants/Restaurants';
 import restaurants_data from '../../restaurants_data.json';
-import Bookmarks from '../bookmarks/Bookmarks';
+import Bookmarks from '../bookmarks/bookmarks';
 
 const Home = () => {
 
@@ -15,7 +15,7 @@ const Home = () => {
                 })
             }
             <Restaurants city={city}/>
-            <Bookmarks />
+            {/* <Bookmarks /> */}
         </div>
     )
 }
