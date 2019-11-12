@@ -12,14 +12,14 @@ router.route('/add').post((req, res) => {
     const yelp_id = req.body.yelp_id;
     const image_url = req.body.image_url;
     const yelp_url = req.body.yelp_url;
-    const isTop = true;
+    const isCurrentTop = true;
 
     const newRestaurant = new Restaurant({
       name,
       yelp_id,
       image_url,
       yelp_url,
-      isTop
+      isCurrentTop
     });
 
     newRestaurant.save()
