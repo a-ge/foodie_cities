@@ -1,33 +1,32 @@
-import React, { Component } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getDbRestaurants } from '../../actions/restaurantActions';
 import RestaurantItem from './RestaurantItem';
-import axios from 'axios';
-// import { getDbRestaurants } from '../../actions/restaurantActions' 
-import restaurants_data from '../../restaurants_data.json';
 
 const Restaurants = ({ city }) => {
+  console.log("city", city) //need to plug in
 
-  // const dispatch = useDispatch();
-  // const getDbRests = () => dispatch(getDbRestaurants)
-  
-  async function fetchDbRests() {
-    const response = await axios.get('http://localhost:5000/restaurants/')
-      .then(resp => console.log(resp));
-  };
+  const restaurantsSelector = useSelector((state) => state.restaurants);
+  console.log("state", restaurantsSelector)
 
-  fetchDbRests();
+  const cityRestaurantsData = restaurantsSelector.restaurants
+  console.log("rests", cityRestaurantsData)
 
-  const city_name = Object.keys(restaurants_data[city])[0]
-  const city_restaurants = restaurants_data[city][city_name]
+  const dispatch = useDispatch();
+  const getRests = () => dispatch(getDbRestaurants());
+
+  useEffect(() => {
+    getRests();
+  }, [city])
 
   return (
     <div>
       <ul>
         {
-          city_restaurants.map(restaurant =>
+          cityRestaurantsData.map(restaurant =>
             <RestaurantItem restaurant={restaurant} key={restaurant.id} />)
         }
-        </ul>
+      </ul>
     </div>
   );
 };
