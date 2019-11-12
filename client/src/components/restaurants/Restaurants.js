@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { useDispatch } from 'react-redux';
 import RestaurantItem from './RestaurantItem';
 import axios from 'axios';
-// import { getDbRestaurants } from '../../actions/restaurantActions' 
+// import { getDbRestaurants } from '../../actions/restaurantActions'
 import restaurants_data from '../../restaurants_data.json';
 
 const Restaurants = ({ city }) => {
 
   // const dispatch = useDispatch();
   // const getDbRests = () => dispatch(getDbRestaurants)
-  
+
   async function fetchDbRests() {
     const response = await axios.get('http://localhost:5000/restaurants/')
       .then(resp => console.log(resp));
@@ -22,12 +22,13 @@ const Restaurants = ({ city }) => {
 
   return (
     <div>
-      <ul>
-        {
-          city_restaurants.map(restaurant =>
-            <RestaurantItem restaurant={restaurant} key={restaurant.id} />)
-        }
-        </ul>
+
+      // <ul>
+        // {
+        //   city_restaurants.map(restaurant =>
+        //     <RestaurantItem restaurant={restaurant} key={restaurant.id} />)
+        // }
+        // </ul>
     </div>
   );
 };

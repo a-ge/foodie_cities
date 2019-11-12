@@ -1,6 +1,6 @@
-// import { 
-//   GET_DB_RESTAURANTS, 
-//   SET_LOADING, 
+// import {
+//   GET_DB_RESTAURANTS,
+//   SET_LOADING,
 //   DB_RESTAURANTS_ERROR } from './types';
 
 // export const getDbRestaurants = () => async dispatch => {
