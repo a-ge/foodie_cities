@@ -46,7 +46,7 @@ async function loadDBRestaurants() {
 
     for (let j=0; j < response.length; j++) {
       http.post('http://localhost:5000/restaurants/add', response[j])
-      .then(data => console.log(response[j]))
+      .then(data => console.log("testing", data))
       .catch(err => console.log(err))
     }
   }
