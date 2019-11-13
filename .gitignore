@@ -13,10 +13,4 @@ yarn-debug.log*
 yarn-error.log*%
 
 .env
-<<<<<<< HEAD
-config/default.json
-
 /client/src/restaurants_data.json
-=======
-./config/default.json
->>>>>>> fix .gitignore for default.json
