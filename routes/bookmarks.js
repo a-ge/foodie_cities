@@ -11,18 +11,18 @@ router.route('/add').post((req, res) => {
     const restaurant_id = Number(req.body.restaurant_id);
     const user_id = Number(req.body.user_id);
     const isVisited = req.body.isVisited;
-    const isBooked = req.body.isBooked;
+    const isMarked = req.body.isMarked;
 
     const newBookmarks = new Bookmarks({
         restaurant_id,
         user_id,
         isVisited,
-        isBooked
-});
+        isMarked
+    });
 
     newBookmarks.save()
     .then(() => res.json('Bookmark added!'))
     .catch(err => res.status(400).json('Error: ' + err));
-  });
+});
 
 module.exports = router;

@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('fs');
+const fetch = require("node-fetch");
 
 require('dotenv').config();
 const yelp = require('yelp-fusion');
@@ -21,22 +22,34 @@ function callYelp(i) {
   return response;
 }
 
-async function createJSONFile() {
-  const restObjArray = []
-
-  for (let i=0; i < locations.length; i++) {
-    const dict = {}
-    const resp = await callYelp(i)
-    dict[locations[i]] = resp.jsonBody.businesses
-    restObjArray.push(dict)
-  }
-
-  let data = JSON.stringify(restObjArray);
-
-  fs.writeFile('./client/src/restaurants_data.json', data, (err) => {
-      if (err) throw err;
-      console.log('Data written to file');
+class EasyHTTP {
+  async post(url, data) {
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify(data)
   });
+
+  const resData = await response.json();
+  return resData;
+  }
+}
+
+const http = new EasyHTTP;
+
+async function loadDBRestaurants() {
+  for (let i=0; i < locations.length; i++) {
+    const resp = await callYelp(i)
+    const response = resp.jsonBody.businesses
+
+    for (let j=0; j < response.length; j++) {
+      http.post('http://localhost:5000/restaurants/add', response[j])
+      .then(data => console.log(response[j]))
+      .catch(err => console.log(err))
+    }
+  }
 };
 
-createJSONFile()
+loadDBRestaurants()

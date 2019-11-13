@@ -11,9 +11,6 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch(action.type) {
-    case 'GET_RESTAURANTS_DATA':
-      return state;
-
     case 'GET_DB_RESTAURANTS':
       return {
         ...state,
@@ -36,7 +33,7 @@ export default (state = initialState, action) => {
   }
 }
     //
-    //
+    // For testing
     //
     // [{1: {yelp_id: "lJAGnYzku5zSaLnQ_T6_GQ", name: "Tartine", img: "tart_img", yelp: "tart_yelp", isTop: true}},
     //   {2: {yelp_id: "lJAGnYzku5zSaLrm_T6_GQ", name: "Lala", img: "lala_img", yelp: "lala_yelp", isTop: true}}],

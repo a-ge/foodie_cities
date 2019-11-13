@@ -1,5 +1,5 @@
 {
-  "name": "popular_events",
+  "name": "foodie_cities",
   "version": "1.0.0",
   "description": "Foodie Cities",
   "main": "server.js",
@@ -14,7 +14,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
     "config": "^3.2.3",
     "cors": "^2.8.5",
@@ -23,6 +22,7 @@
     "express-validator": "^6.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.6",
+    "node-fetch": "^2.6.0",
     "react-redux": "^7.1.1",
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
