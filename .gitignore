@@ -13,4 +13,8 @@ yarn-debug.log*
 yarn-error.log*%
 
 .env
+<<<<<<< HEAD
 /client/src/restaurants_data.json
+=======
+./config/default.json
+>>>>>>> 63084011c1199c4517c470a29f84442822aae0bf
