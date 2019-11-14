@@ -3,12 +3,13 @@ import {
   SET_LOADING,
   DB_RESTAURANTS_ERROR} from './types';
 
+import restaurants_data from '../restaurants_data.json';
+
 export const getDbRestaurants = () => async dispatch => {
   try {
     setLoading();
 
-    const res = await fetch('http://localhost:5000/restaurants/');
-    const data = await res.json();
+    const data = restaurants_data
 
     dispatch({
       type: GET_DB_RESTAURANTS,
