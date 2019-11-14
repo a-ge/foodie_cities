@@ -20,10 +20,12 @@ connection.once('open', () => {
 })
 
 const usersRouter = require('./routes/users');
+const authRouter = require('./routes/auth');
 const bookmarksRouter = require('./routes/bookmarks');
 const restaurantsRouter = require('./routes/restaurants');
 
 app.use('/users', usersRouter);
+app.use('/auth', authRouter);
 app.use('/bookmarks', bookmarksRouter);
 app.use('/restaurants', restaurantsRouter);
 

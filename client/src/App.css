@@ -35,3 +35,11 @@
   float: left;
   background-color: rgba(135, 206, 250, 0.5294117647058824)
 }
+
+.form-group {
+  margin: 1.2rem 0;
+}
+
+.form-group input {
+  margin: 0.2rem 0;
+}
