@@ -13,3 +13,4 @@ yarn-debug.log*
 yarn-error.log*%
 
 .env
+/client/src/restaurants_data.json

@@ -1,41 +1,34 @@
-// import React, { useState, useEffect } from 'react';
-// import { connect } from 'react-redux';
-// import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getDbBookmarks } from '../../actions/bookmarkActions';
+import BookmarkItem from './bookmarkItem';
 
-// const Bookmarks = () => {
+const Bookmarks = () => {
 
-//   const [favorites, setFavorites] = useState([]);
-//   const [checkHeart, setCheckHeart] = useState(false);
+  const bookmarksSelector = useSelector((state) => state.bookmarks);
+  console.log("state", bookmarksSelector)
 
-//   const toggleHeart = () => {
-//     axios.post('http://localhost:5000/favorites/add',
-//       {restaurant_id: 67, user_id: 2, status: "went"});
-//     setCheckHeart(!checkHeart);
-//   };
+  const bookmarkArray = bookmarksSelector.bookmarks
+  console.log("bookmarkArray", bookmarkArray)
 
-//   async function fetchData() {
-//     const response = await axios.get('http://localhost:5000/favorites/')
-//     const resp = response.data
-//     setFavorites(resp.map(fave => fave.restaurant_id));
-//   };
+  const dispatch = useDispatch();
+  const getBkmks = () => dispatch(getDbBookmarks());
 
-//   useEffect(() => {
-//     fetchData()
-//   }, [checkHeart]);
+  useEffect(() => {
+    getBkmks();
+  }, [])
 
-//   return (
-//     <div>
-//       <input
-//         type="checkbox"
-//         name="heart"
-//         defaultChecked={setCheckHeart}
-//         onClick={e => toggleHeart()}
-//       />Heart
-//       <div>
-//       test...{favorites}
-//       </div>
-//     </div>
-//   );
-// };
+  return (
+    <div>
+      BOOKMARKS
+      <ul>
+        {
+          bookmarkArray.map(bookmark =>
+            <BookmarkItem bookmark={bookmark} key={bookmark.id} />)
+        }
+      </ul>
+    </div>
+  );
+};
 
-// export default Bookmarks
+export default Bookmarks

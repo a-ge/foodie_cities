@@ -9,14 +9,18 @@ const Home = () => {
     const [city, setCity] = useState(0);
 
     return (
-        <div>
+        <div className='home-container'>
+          <div id='restaurants-container'>
             {
                 cities.map((city_name, index) => {
                     return <button onClick={() => setCity(index)}>{Object.keys(city_name)[0]}</button>
                 })
             }
             <Restaurants city={city}/>
-            {/* <Bookmarks /> */}
+          </div>
+          <div id='bookmarks-container'>
+            <Bookmarks />
+          </div>
         </div>
     )
 }
