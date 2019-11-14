@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Login = props => {
+const Login = () => {
 
 
   return (
@@ -30,7 +30,6 @@ const Login = props => {
         <input
           type='submit'
           value='Login'
-          className='btn btn-primary btn-block'
         />
       </form>
     </div>

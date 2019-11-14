@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Register = props => {
+const Register = () => {
 
 
   return (
@@ -10,11 +10,11 @@ const Register = props => {
       </h1>
       <form>
         <div className='form-group'>
-          <label htmlFor='name'>Name</label>
+          <label htmlFor='name'>Username</label>
           <input
-            id='name'
+            id='username'
             type='text'
-            name='name'
+            name='username'
             required
           />
         </div>
@@ -37,20 +37,9 @@ const Register = props => {
             minLength='6'
           />
         </div>
-        <div className='form-group'>
-          <label htmlFor='password2'>Confirm Password</label>
-          <input
-            id='password2'
-            type='password'
-            name='password2'
-            required
-            minLength='6'
-          />
-        </div>
         <input
           type='submit'
           value='Register'
-          className='btn btn-primary btn-block'
         />
       </form>
     </div>
