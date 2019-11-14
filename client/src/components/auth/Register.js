@@ -10,11 +10,11 @@ const Register = props => {
       </h1>
       <form>
         <div className='form-group'>
-          <label htmlFor='name'>Name</label>
+          <label htmlFor='name'>Username</label>
           <input
-            id='name'
+            id='username'
             type='text'
-            name='name'
+            name='username'
             required
           />
         </div>
