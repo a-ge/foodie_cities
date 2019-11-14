@@ -2,47 +2,41 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDbRestaurants } from '../../actions/restaurantActions';
 import RestaurantItem from './RestaurantItem';
-import restaurants_data from '../../restaurants_data.json';
 
-const Restaurants = ({ city }) => {
-  // console.log("city", city) //need to plug in
+const Restaurants = () => {
 
-  // const restaurantsSelector = useSelector((state) => state.restaurants.restaurants[city]);
-  // console.log("state", restaurantsSelector)
-  // console.log("type", typeof restaurantsSelector)
+  // const [city, setCity] = useState(0);
 
-  // const changeToJSObj = JSON.parse(restaurantsSelector)
-  // console.log('parsed', changeToJSObj)
+  const restaurantsSelector = useSelector((state) => state.restaurants.restaurants[0]);
+  console.log("state", restaurantsSelector)
 
-  // const city_name = Object.keys(changeToJSObj)
-  // const test = changeToJSObj[city_name]
-  // console.log("test is", test)
+  // const cities = Object.keys(restaurantsSelector)
+  // console.log("cities", cities)
+  // const restaurantArray = restaurantsSelector["San Francisco, CA"]
+  // console.log("restaurantArray", restaurantArray)
 
+  const dispatch = useDispatch();
+  const getRests = () => dispatch(getDbRestaurants());
 
-  // console.log(city_name)
-  // const actual = city_name[0]
-  // const cityRestaurantsData = restaurantsSelector[actual]
-  // console.log("rests", cityRestaurantsData)
-
-  
-  const city_name = Object.keys(restaurants_data[city])[0]
-  const city_restaurants = restaurants_data[city][city_name]
-
-  // const dispatch = useDispatch();
-  // const getRests = () => dispatch(getDbRestaurants());
-
-  // useEffect(() => {
-  //   getRests();
-  // }, [city])
+  useEffect(() => {
+    getRests();
+  }, [])
 
   return (
     <div>
+      <div>
+        {
+            // cities.map((city_name, index) => {
+            //     return <button onClick={() => setCity(index)}>{Object.keys(city_name)[0]}</button>
+            // })
+        }
+      </div>
       <ul>
         {
-          city_restaurants.map(restaurant =>
-            <RestaurantItem restaurant={restaurant} key={restaurant.id} />)
+          // restaurantArray.map(restaurant =>
+          //   <RestaurantItem restaurant={restaurant} key={restaurant.id} />)
         }
-        </ul>
+      </ul>
     </div>
   );
 };
