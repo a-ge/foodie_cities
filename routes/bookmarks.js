@@ -8,16 +8,16 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-    const restaurant_id = Number(req.body.restaurant_id);
-    const user_id = Number(req.body.user_id);
-    const isVisited = req.body.isVisited;
-    const isMarked = req.body.isMarked;
+    const yelpId = req.body.yelpId;
+    const yelpUrl = req.body.yelpUrl;
+    const restaurantName = req.body.restaurantName;
+    const imageUrl = req.body.imageUrl;
 
     const newBookmarks = new Bookmarks({
-        restaurant_id,
-        user_id,
-        isVisited,
-        isMarked
+        yelpId,
+        yelpUrl,
+        restaurantName,
+        imageUrl
     });
 
     newBookmarks.save()
