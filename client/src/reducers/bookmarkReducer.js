@@ -1,7 +1,10 @@
 import {
-  GET_DB_BOOKMARKS,
   SET_LOADING,
-  DB_BOOKMARKS_ERROR} from '../actions/types';
+  GET_DB_BOOKMARKS,
+  BOOKMARKS_ERROR,
+  ADD_BOOKMARK,
+  DELETE_BOOKMARK
+} from '../actions/types';
 
 const initialState = {
   restaurants: [],
@@ -17,18 +20,31 @@ export default (state = initialState, action) => {
         ...state,
         bookmarks: action.payload,
         loading: false
-      }
+      };
+    case BOOKMARKS_ERROR:
+      console.error(action.payload);
+      return {
+        ...state,
+        error: action.payload
+      };
+    case ADD_BOOKMARK:
+      return {
+        ...state,
+        bookmarks: [...state.bookmarks, action.payload],
+        loading: false
+      };
+    case DELETE_BOOKMARK:
+      return {
+        ...state,
+        restaurants: state.restaurants.filter(restaurants => restaurants.id !== action.payload),
+        loading: false
+      };
     case SET_LOADING:
       return {
         ...state,
         loading: true
       };
-    case DB_BOOKMARKS_ERROR:
-      console.error(action.payload);
-      return {
-        ...state,
-        error: action.payload
-      }
+
     default:
       return state;
   }

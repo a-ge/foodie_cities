@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDbBookmarks } from '../../actions/bookmarkActions';
-import BookmarkItem from './bookmarkItem';
+import BookmarkItem from './BookmarkItem';
 
 const Bookmarks = () => {
 
