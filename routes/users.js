@@ -5,13 +5,15 @@ let User = require('../models/User');
 
 router.route('/add').post((req, res) => {
   const username = req.body.username;
-  const email = req.body.email
-  const password = req.body.password
+  const email = req.body.email;
+  const password = req.body.password;
+  const bookmarks = [];
 
   const newUser = new User({
     username,
     email,
-    password
+    password,
+    bookmarks
   });
 
   newUser.save()
@@ -94,4 +96,3 @@ module.exports = router;
 //     }
 //   }
 // );
-
