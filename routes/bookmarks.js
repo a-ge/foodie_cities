@@ -1,28 +1,81 @@
 const router = require('express').Router();
-let Bookmarks = require('../models/Bookmarks');
+let User = require('../models/User');
+let Bookmark = require('../models/Bookmark');
 
 router.route('/').get((req, res) => {
-    Bookmarks.find()
-    .then(bookmarks => res.json(bookmarks))
+    Bookmark.find()
+    .then(bookmark => res.json(bookmark))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/add').post((req, res) => {
-    const restaurant_id = Number(req.body.restaurant_id);
-    const user_id = Number(req.body.user_id);
-    const isVisited = req.body.isVisited;
-    const isMarked = req.body.isMarked;
+router.route('/add').post(async (req, res) => {
+    try {
+      const user =  req.body.user;
+      const yelpId = req.body.yelpId;
+      const yelpUrl = req.body.yelpUrl;
+      const restaurantName = req.body.restaurantName;
+      const imageUrl = req.body.imageUrl;
 
-    const newBookmarks = new Bookmarks({
-        restaurant_id,
-        user_id,
-        isVisited,
-        isMarked
-    });
+      const bookmark = {
+          yelpId,
+          yelpUrl,
+          restaurantName,
+          imageUrl
+      }
 
-    newBookmarks.save()
-    .then(() => res.json('Bookmark added!'))
-    .catch(err => res.status(400).json('Error: ' + err));
+      const userBookmarkAdd = await User.findOneAndUpdate(
+        { username: user },
+        { $push: { bookmarks: bookmark }}
+      )
+
+      if (!userBookmarkAdd) {
+        return res.json('User not found.');
+      }
+
+      userBookmarkUpdate.save()
+        .then(() => res.json('User bookmarks updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+
+      const foundBookmark = await Bookmark.findOne({yelpid})
+
+      if (foundBookmark) {
+        console.log('Bookmark already in database.');
+      }
+      else {
+        const newBookmark = await new Bookmark(bookmarkItem);
+
+        newBookmark.save()
+          .then(() => res.json('Bookmark added!'))
+          .catch(err => res.status(400).json('Error: ' + err));
+      }
+    }
+    catch (err) {
+      console.error(err.message)
+    }
+
+});
+
+router.route('/delete').post(async (req, res) => {
+  try {
+    const user = req.body.user;
+    const bookmarkObject = req.body.bookmarkObject;
+    console.log(bookmarkObject)
+    const userBookmarkDelete = await User.findOneAndUpdate(
+      { username: user, bookmarks: bookmarkObject },
+      { $pull: { bookmarks: bookmarkObject }}
+    )
+
+    if (!userBookmarkDelete) {
+      return res.json('Bookmark not found.');
+    }
+
+    userBookmarkDelete.save()
+      .then(() => res.json('Bookmark deleted!'))
+      .catch(err => res.status(400).json('Error: ' + err));
+  }
+  catch (err) {
+    console.error(err.message)
+  }
 });
 
 module.exports = router;
