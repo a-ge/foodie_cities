@@ -23,13 +23,13 @@ router.route('/add').post(async (req, res) => {
           imageUrl
       }
 
-      const userBookmarkUpdate = await User.findOneAndUpdate(
-        {username: user},
-        {$push: {bookmarks: bookmark}}
+      const userBookmarkAdd = await User.findOneAndUpdate(
+        { username: user },
+        { $push: { bookmarks: bookmark }}
       )
 
-      if (!userBookmarkUpdate) {
-        return res.json('User not found');
+      if (!userBookmarkAdd) {
+        return res.json('User not found.');
       }
 
       userBookmarkUpdate.save()
@@ -39,7 +39,7 @@ router.route('/add').post(async (req, res) => {
       const foundBookmark = await Bookmark.findOne({yelpid})
 
       if (foundBookmark) {
-        console.log('Bookmark already in database.')
+        console.log('Bookmark already in database.');
       }
       else {
         const newBookmark = await new Bookmark(bookmarkItem);
@@ -53,6 +53,29 @@ router.route('/add').post(async (req, res) => {
       console.error(err.message)
     }
 
+});
+
+router.route('/delete').post(async (req, res) => {
+  try {
+    const user = req.body.user;
+    const bookmarkObject = req.body.bookmarkObject;
+    console.log(bookmarkObject)
+    const userBookmarkDelete = await User.findOneAndUpdate(
+      { username: user, bookmarks: bookmarkObject },
+      { $pull: { bookmarks: bookmarkObject }}
+    )
+
+    if (!userBookmarkDelete) {
+      return res.json('Bookmark not found.');
+    }
+
+    userBookmarkDelete.save()
+      .then(() => res.json('Bookmark deleted!'))
+      .catch(err => res.status(400).json('Error: ' + err));
+  }
+  catch (err) {
+    console.error(err.message)
+  }
 });
 
 module.exports = router;
