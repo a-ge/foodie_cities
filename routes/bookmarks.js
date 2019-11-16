@@ -8,38 +8,51 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/add').post((req, res) => {
-    const user =  req.body.username;
-    const yelpId = req.body.yelpId;
-    const yelpUrl = req.body.yelpUrl;
-    const restaurantName = req.body.restaurantName;
-    const imageUrl = req.body.imageUrl;
+router.route('/add').post(async (req, res) => {
+    try {
+      const user =  req.body.user;
+      const yelpId = req.body.yelpId;
+      const yelpUrl = req.body.yelpUrl;
+      const restaurantName = req.body.restaurantName;
+      const imageUrl = req.body.imageUrl;
 
-    const bookmark = {
-        yelpId,
-        yelpUrl,
-        restaurantName,
-        imageUrl
-    }
+      const bookmark = {
+          yelpId,
+          yelpUrl,
+          restaurantName,
+          imageUrl
+      }
 
-    async function saving(bookmarkItem) {
-      let userBookmarkUpdate = await User.findOneAndUpdate(
+      const userBookmarkUpdate = await User.findOneAndUpdate(
         {username: user},
-        {$push: {bookmarks: bookmarkItem}}
+        {$push: {bookmarks: bookmark}}
       )
+
+      if (!userBookmarkUpdate) {
+        return res.json('User not found');
+      }
 
       userBookmarkUpdate.save()
         .then(() => res.json('User bookmarks updated!'))
         .catch(err => res.status(400).json('Error: ' + err));
 
-      const newBookmark = await new Bookmark(bookmarkItem);
+      const foundBookmark = await Bookmark.findOne({yelpid})
 
-      newBookmark.save()
-        .then(() => res.json('Bookmark added!'))
-        .catch(err => res.status(400).json('Error: ' + err));
+      if (foundBookmark) {
+        console.log('Bookmark already in database.')
+      }
+      else {
+        const newBookmark = await new Bookmark(bookmarkItem);
+
+        newBookmark.save()
+          .then(() => res.json('Bookmark added!'))
+          .catch(err => res.status(400).json('Error: ' + err));
+      }
+    }
+    catch (err) {
+      console.error(err.message)
     }
 
-    saving(bookmark)
 });
 
 module.exports = router;
