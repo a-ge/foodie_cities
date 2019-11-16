@@ -1,6 +1,8 @@
 import {
     REGISTER_USER,
     REGISTER_ERROR,
+    LOGIN_USER,
+    LOGIN_ERROR,
     SET_LOADING
 } from './types';
 
@@ -29,6 +31,22 @@ export const addUser = user => async dispatch => {
       });
     }
   };
+
+// Login the user if passed check
+export const loginUser = () => dispatch => {
+    try {
+        setLoading();
+
+        dispatch({
+            type: LOGIN_USER
+        });
+    } catch (err) {
+        dispatch({
+            type: LOGIN_ERROR,
+            payload: err.response.statusText
+        });
+    }
+};
 
 
   // Set loading to true
