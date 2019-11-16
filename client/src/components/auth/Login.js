@@ -1,20 +1,42 @@
 import React from 'react';
+import { useSelector, connect } from 'react-redux';
+import { loginUser } from '../../actions/userActions';
 
-const Login = () => {
+const Login = ({ loginUser }) => {
 
+    const isLogged = useSelector(state => state.isLogged);
 
+    const onSubmit = async (e) => {
+        e.preventDefault();
+
+        const formUsername = document.getElementById('username').value;
+        const formPassword = document.getElementById('password').value;
+
+        const loginData = {username:formUsername, password:formPassword}
+
+        console.log('grabbed', formUsername, formPassword)
+
+        const res = await fetch(`http://localhost:5000/users/login/${loginData}`)
+
+        if (res.status === 400) {
+          console.log('wrong username or password!')
+        } else {
+          loginUser()
+        }
+      };
+    
   return (
     <div className='form-container'>
       <h1>
         Account <span className='text-primary'>Login</span>
       </h1>
-      <form>
+      <form onSubmit={onSubmit}>
         <div className='form-group'>
-          <label htmlFor='email'>Email Address</label>
+          <label htmlFor='username'>Username</label>
           <input
-            id='email'
-            type='email'
-            name='email'
+            id='username'
+            type='username'
+            name='username'
             required
           />
         </div>
@@ -32,8 +54,12 @@ const Login = () => {
           value='Login'
         />
       </form>
+
+      {isLogged ? <h3>You are logged in</h3> : <h3>You are not logged in</h3>}
+
     </div>
   );
-};
 
-export default Login;
+  }
+
+export default connect(null, { loginUser })(Login);
