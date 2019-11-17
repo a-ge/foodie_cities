@@ -13,7 +13,7 @@ const RestaurantItem = ({ restaurant }) => {
         {restaurantData.name}
       </div>
       <div>
-        <img src={restaurantData.image_url} height="42" width="42" />
+        <img src={restaurantData.image_url} alt="Not available" height="42" width="42" />
       </div>
       <div>
         Rating: {restaurantData.rating}

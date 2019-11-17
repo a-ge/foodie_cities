@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getDbRestaurants } from '../../actions/restaurantActions';
+import React from 'react';
 import RestaurantItem from './RestaurantItem';
 
 const Restaurants = ({ restaurants }) => {
@@ -10,8 +8,8 @@ const Restaurants = ({ restaurants }) => {
     <div   id='restaurants-container'>
       <ul>
         {
-          restaurants.map(restaurant =>
-            <RestaurantItem restaurant={restaurant} key={restaurant.id} />)
+          restaurants.map((restaurant, index) =>
+            <RestaurantItem restaurant={restaurant} key={index} />)
         }
       </ul>
     </div>
