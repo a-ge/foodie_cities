@@ -1,4 +1,5 @@
 import React from 'react';
+import Marker from '../Marker';
 
 const BookmarkItem = ({ bookmark }) => {
 
@@ -7,6 +8,7 @@ const BookmarkItem = ({ bookmark }) => {
       <div>
         {bookmark.name}
       </div>
+        <Marker />
       <br/>
     </div>
   );
