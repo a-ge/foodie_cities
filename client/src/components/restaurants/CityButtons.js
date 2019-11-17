@@ -22,15 +22,14 @@ const CityButtons = () => {
     if (!cityObject) {
       return <div>No restaurants</div>
     } else {
-      const cityNameString = Object.keys(cityObject)[0]
-      const cityRestaurants = cityObject[cityNameString]
+      const cityRestaurants = cityObject.restaurants
 
       return (
         <div>
           <ul>
             {
               citiesArray.map((cityName, index) => {
-                    return <button onClick={() => setCityIndex(index)} key={index}> {Object.keys(cityName)[0]} </button>
+                    return <button onClick={() => setCityIndex(index)} key={index}>{cityName.cityName}</button>
               })
             }
           </ul>
