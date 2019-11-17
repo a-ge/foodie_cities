@@ -6,11 +6,11 @@ import {
   DELETE_BOOKMARK
 } from './types';
 
-export const getDbBookmarks = () => async dispatch => {
+export const getDbBookmarks = user => async dispatch => {
   try {
     setLoading();
 
-    const res = await fetch('http://localhost:4000/bookmarks');
+    const res = await fetch(`http://localhost:5000/bookmarks/${user}`);
     const data = await res.json();
 
     dispatch({

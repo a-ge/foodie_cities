@@ -18,7 +18,7 @@ export default (state = initialState, action) => {
     case GET_DB_BOOKMARKS:
       return {
         ...state,
-        bookmarks: action.payload,
+        bookmarks: action.payload.bookmarks,
         loading: false
       };
     case BOOKMARKS_ERROR:

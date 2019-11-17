@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getDbRestaurants } from '../../actions/restaurantActions';
 import Restaurants from './Restaurants';
 
-const CityButtons = () => {
+const CityButtons = ({ bookmarksArray }) => {
   const [cityIndex, setCityIndex] = useState(0);
   const citiesArray = useSelector((state) => state.restaurants.restaurants);
 
@@ -33,7 +33,7 @@ const CityButtons = () => {
               })
             }
           </ul>
-          <Restaurants cityRestaurants={cityRestaurants} />
+          <Restaurants cityRestaurants={cityRestaurants} bookmarksArray={bookmarksArray} />
         </div>
       )
     }

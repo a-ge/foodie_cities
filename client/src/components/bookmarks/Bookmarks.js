@@ -3,23 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getDbBookmarks } from '../../actions/bookmarkActions';
 import BookmarkItem from './BookmarkItem';
 
-const Bookmarks = () => {
-  const bookmarksSelector = useSelector((state) => state.bookmarks);
-  const bookmarkArray = bookmarksSelector.bookmarks
-
-  const dispatch = useDispatch();
-  const getBkmks = () => dispatch(getDbBookmarks());
-
-  useEffect(() => {
-    getBkmks();
-  }, [])
+const Bookmarks = ({ bookmarksArray }) => {
 
   return (
     <div>
       BOOKMARKS
       <ul>
         {
-          bookmarkArray.map(bookmark =>
+          bookmarksArray.map(bookmark =>
             <BookmarkItem bookmark={bookmark} key={bookmark.id} />)
         }
       </ul>

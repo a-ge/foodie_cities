@@ -6,7 +6,7 @@ const BookmarkItem = ({ bookmark }) => {
   return (
     <div>
       <div>
-        {bookmark.name}
+        {bookmark.restaurantName}
       </div>
         <Marker mark={true}/>
       <br/>
