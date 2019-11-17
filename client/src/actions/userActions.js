@@ -3,6 +3,8 @@ import {
     REGISTER_ERROR,
     LOGIN_USER,
     LOGIN_ERROR,
+    LOGOUT_USER,
+    LOGOUT_ERROR,
     SET_LOADING
 } from './types';
 
@@ -46,6 +48,22 @@ export const loginUser = () => dispatch => {
             payload: err.response.statusText
         });
     }
+};
+
+// Logout the user 
+export const logoutUser = () => dispatch => {
+  try {
+      setLoading();
+
+      dispatch({
+          type: LOGOUT_USER
+      });
+  } catch (err) {
+      dispatch({
+          type: LOGOUT_ERROR,
+          payload: err.response.statusText
+      });
+  }
 };
 
 

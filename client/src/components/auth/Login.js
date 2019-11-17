@@ -4,7 +4,8 @@ import { loginUser } from '../../actions/userActions';
 
 const Login = ({ loginUser }) => {
 
-    const isLogged = useSelector(state => state.isLogged);
+    const isLogged = useSelector((state) => state.users.isLogged);
+    console.log("login isLogged", isLogged)
 
     const onSubmit = async (e) => {
         e.preventDefault();
