@@ -4,11 +4,8 @@ import { getDbRestaurants } from '../../actions/restaurantActions';
 import Restaurants from './Restaurants';
 
 const CityButtons = () => {
-
   const [cityIndex, setCityIndex] = useState(0);
-
   const citiesArray = useSelector((state) => state.restaurants.restaurants);
-  console.log("citiesArray", citiesArray)
 
   const dispatch = useDispatch();
   const getRests = () => dispatch(getDbRestaurants());
@@ -22,21 +19,17 @@ const CityButtons = () => {
   }
   else {
     const cityObject = citiesArray[cityIndex]
-    console.log("cityObject", cityObject)
 
     if (cityObject) {
       const cityNameString = Object.keys(cityObject)[0]
-      console.log("cityNameString", cityNameString)
-
       const cityRestaurants = cityObject[cityNameString]
-      console.log("cityRestaurants", cityRestaurants)
 
       return (
         <div>
           <ul>
             {
               citiesArray.map((cityName, index) => {
-                    return <button onClick={() => setCityIndex(index)}> {Object.keys(cityName)[0]} </button>
+                    return <button onClick={() => setCityIndex(index)} key={index}> {Object.keys(cityName)[0]} </button>
               })
             }
           </ul>
