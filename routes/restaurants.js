@@ -8,18 +8,15 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-    const name = req.body.name;
-    const yelp_id = req.body.id;
+    const cityName = req.body.cityName;
+    const restaurants = req.body.restaurants;
     const image_url = req.body.image_url;
     const yelp_url = req.body.url;
     const isCurrentTop = true ;
 
     const newRestaurant = new Restaurant({
-      name,
-      yelp_id,
-      image_url,
-      yelp_url,
-      isCurrentTop
+      cityName,
+      restaurants
     });
 
     newRestaurant.save()

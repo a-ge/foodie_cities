@@ -7,7 +7,7 @@ export const getDbRestaurants = () => async dispatch => {
   try {
     setLoading();
 
-    const res = await fetch('http://localhost:4000/restaurants');
+    const res = await fetch('http://localhost:5000/restaurants');
     const data = await res.json();
 
     dispatch({
