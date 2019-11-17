@@ -1,14 +1,13 @@
 import React from 'react';
 import RestaurantItem from './RestaurantItem';
 
-const Restaurants = ({ restaurants }) => {
-  console.log("restcity", restaurants)
+const Restaurants = ({ cityRestaurants }) => {
 
   return (
     <div   id='restaurants-container'>
       <ul>
         {
-          restaurants.map((restaurant, index) =>
+          cityRestaurants.map((restaurant, index) =>
             <RestaurantItem restaurant={restaurant} key={index} />)
         }
       </ul>
