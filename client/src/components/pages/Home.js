@@ -10,23 +10,22 @@ const Home = () => {
   const bookmarksArray = bookmarksSelector.bookmarks
 
   const dispatch = useDispatch();
-  const getBkmks = () => dispatch(getDbBookmarks());
+  const getBkmks = (user) => dispatch(getDbBookmarks(user));
 
   useEffect(() => {
-    getBkmks();
+    getBkmks('ashleyg');
   }, [])
 
     return (
         <div className='home-container'>
           <div>
-
+            <CityButtons bookmarksArray={bookmarksArray} />
           </div>
           <div id='bookmarks-container'>
-            <Bookmarks bookmarksArray={bookmarksArray}/>
+            <Bookmarks bookmarksArray={bookmarksArray} />
           </div>
         </div>
     )
 }
 
 export default Home
-            // <CityButtons />

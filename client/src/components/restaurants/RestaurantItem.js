@@ -2,17 +2,14 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Marker from '../Marker';
 
-const RestaurantItem = ({ restaurant }) => {
-  const bookmarksSelector = useSelector((state) => state.bookmarks);
-  const bookmarksArray = bookmarksSelector.bookmarks
+const RestaurantItem = ({ restaurant, bookmarksArray }) => {
+  const [ bookmarks, setBookmarks ] = useState([])
 
-  if (!bookmarksArray) {
-    return <div>No bookmarks</div>
-  } else {
-    const idsArray = bookmarksArray.map(item => item.id)
-    console.log("idsArray", idsArray)
-    const mark = idsArray.includes(restaurant.id)
-    console.log("id", restaurant.id)
+  const mark = () => {
+    setBookmarks(bookmarksArray)
+    const idsArray = bookmarks.map((bookmark) => bookmark.yelpId)
+    return idsArray.includes(restaurant.id)
+  }
 
     return (
       <div>
@@ -32,7 +29,6 @@ const RestaurantItem = ({ restaurant }) => {
         <br/>
       </div>
     )
-  }
 };
 
 export default RestaurantItem
