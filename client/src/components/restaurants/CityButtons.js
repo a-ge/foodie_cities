@@ -14,13 +14,14 @@ const CityButtons = () => {
     getRests();
   }, [cityIndex])
 
-  if (citiesArray === null) {
+  if (!citiesArray) {
     return <div>No cities</div>
-  }
-  else {
+  } else {
     const cityObject = citiesArray[cityIndex]
 
-    if (cityObject) {
+    if (!cityObject) {
+      return <div>No restaurants</div>
+    } else {
       const cityNameString = Object.keys(cityObject)[0]
       const cityRestaurants = cityObject[cityNameString]
 
@@ -36,9 +37,6 @@ const CityButtons = () => {
           <Restaurants cityRestaurants={cityRestaurants} />
         </div>
       )
-    }
-    else {
-      return <div>No restaurants</div>
     }
   }
 }
