@@ -2,10 +2,18 @@ const router = require('express').Router();
 let User = require('../models/User');
 let Bookmark = require('../models/Bookmark');
 
-router.route('/').get((req, res) => {
-    Bookmark.find()
-    .then(bookmark => res.json(bookmark))
-    .catch(err => res.status(400).json('Error: ' + err));
+router.route('/:user').get(async (req, res) => {
+  const username = req.params.user;
+
+  try {
+    let findUser = await User.findOne({ username: username }, 'bookmarks');
+
+    return res.json(findUser)
+
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
 });
 
 router.route('/add').post(async (req, res) => {
@@ -41,6 +49,7 @@ router.route('/add').post(async (req, res) => {
       if (foundBookmark) {
         console.log('Bookmark already in database.');
       }
+
       else {
         const newBookmark = await new Bookmark(bookmarkItem);
 
@@ -49,6 +58,7 @@ router.route('/add').post(async (req, res) => {
           .catch(err => res.status(400).json('Error: ' + err));
       }
     }
+
     catch (err) {
       console.error(err.message)
     }
@@ -73,6 +83,7 @@ router.route('/delete').post(async (req, res) => {
       .then(() => res.json('Bookmark deleted!'))
       .catch(err => res.status(400).json('Error: ' + err));
   }
+  
   catch (err) {
     console.error(err.message)
   }
