@@ -10,8 +10,8 @@ const Bookmarks = ({ bookmarksArray }) => {
       BOOKMARKS
       <ul>
         {
-          bookmarksArray.map(bookmark =>
-            <BookmarkItem bookmark={bookmark} key={bookmark.id} />)
+          bookmarksArray.map((bookmark, index) =>
+            <BookmarkItem bookmark={bookmark} key={index} />)
         }
       </ul>
     </div>
