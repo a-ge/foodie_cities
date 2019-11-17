@@ -10,9 +10,6 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
     const cityName = req.body.cityName;
     const restaurants = req.body.restaurants;
-    const image_url = req.body.image_url;
-    const yelp_url = req.body.url;
-    const isCurrentTop = true ;
 
     const newRestaurant = new Restaurant({
       cityName,
