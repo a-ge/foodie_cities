@@ -1,41 +1,50 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getDbRestaurants } from '../../actions/restaurantActions';
 import Restaurants from './Restaurants';
 
 const CityButtons = () => {
+
   const [cityIndex, setCityIndex] = useState(0);
-  const [restaurants, setRestaurants] = useState([])
+
+  const citiesArray = useSelector((state) => state.restaurants.restaurants);
+  console.log("citiesArray", citiesArray)
+
+  const dispatch = useDispatch();
+  const getRests = () => dispatch(getDbRestaurants());
 
   useEffect(() => {
-    const fetchRestaurants = async () => {
-      const response = await fetch('http://localhost:4000/restaurants/');
-      const data = await response.json();
-      setRestaurants(data);
-    }
-    fetchRestaurants()
-  }, []);
+    getRests();
+  }, [cityIndex])
 
-  if (restaurants === null) {
+  if (citiesArray === null) {
     return <div>No cities</div>
-  } else {
-    const cityObject = restaurants[cityIndex]
+  }
+  else {
+    const cityObject = citiesArray[cityIndex]
+    console.log("cityObject", cityObject)
 
     if (cityObject) {
-      const cityName = Object.keys(cityObject)[0]
-      const cityRestaurants = cityObject[cityName]
+      const cityNameString = Object.keys(cityObject)[0]
+      console.log("cityNameString", cityNameString)
+
+      const cityRestaurants = cityObject[cityNameString]
+      console.log("cityRestaurants", cityRestaurants)
 
       return (
         <div>
           <ul>
             {
-              restaurants.map((cityData, index) => {
-                    return <button key={index} onClick={() => setCityIndex(index)}> {Object.keys(cityData)[0]} </button>
+              citiesArray.map((cityName, index) => {
+                    return <button onClick={() => setCityIndex(index)}> {Object.keys(cityName)[0]} </button>
               })
             }
           </ul>
           <Restaurants cityRestaurants={cityRestaurants} />
         </div>
       )
-    } else {
+    }
+    else {
       return <div>No restaurants</div>
     }
   }
