@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React  from 'react';
 import CityButtons from '../restaurants/CityButtons';
 import Bookmarks from '../bookmarks/Bookmarks';
 
