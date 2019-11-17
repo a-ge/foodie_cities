@@ -4,12 +4,8 @@ import { getDbBookmarks } from '../../actions/bookmarkActions';
 import BookmarkItem from './BookmarkItem';
 
 const Bookmarks = () => {
-
   const bookmarksSelector = useSelector((state) => state.bookmarks);
-  console.log("state", bookmarksSelector)
-
   const bookmarkArray = bookmarksSelector.bookmarks
-  console.log("bookmarkArray", bookmarkArray)
 
   const dispatch = useDispatch();
   const getBkmks = () => dispatch(getDbBookmarks());
