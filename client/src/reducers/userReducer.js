@@ -2,6 +2,8 @@ import { REGISTER_USER,
          REGISTER_ERROR,
          LOGIN_USER,
          LOGIN_ERROR,
+         LOGOUT_USER,
+         LOGOUT_ERROR,
          SET_LOADING
 } from '../actions/types';
 
@@ -35,6 +37,19 @@ export default (state = initialState, action) => {
                 isLogged: true
             }
         case LOGIN_ERROR:
+            console.error(action.payload);
+            return {
+                ...state,
+                error: action.payload,
+                loading: false
+            }
+        case LOGOUT_USER:
+            return {
+                ...state,
+                loading: false,
+                isLogged: false
+            }
+        case LOGOUT_ERROR:
             console.error(action.payload);
             return {
                 ...state,
