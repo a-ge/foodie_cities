@@ -8,7 +8,7 @@ const BookmarkItem = ({ bookmark }) => {
       <div>
         {bookmark.name}
       </div>
-        <Marker />
+        <Marker mark={true}/>
       <br/>
     </div>
   );
