@@ -1,7 +1,11 @@
 import React, { Fragment, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Navbar = ({ title, icon }) => {
+
+  const isLogged = useSelector((state) => state.users.isLogged);
+  console.log("navbar isLogged", isLogged)
 
   return (
     <div className='navbar'>
@@ -16,7 +20,8 @@ const Navbar = ({ title, icon }) => {
               <Link to='/about'>About</Link>
           </li>
           <li>
-              <Link to='/login'>Login</Link>
+          {isLogged ? <Link to='/logout'>Logout</Link> : <Link to='/login'>Login</Link>}
+              
           </li>
           <li>
               <Link to='/register'>Register</Link>
