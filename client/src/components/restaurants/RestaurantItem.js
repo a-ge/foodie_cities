@@ -11,7 +11,7 @@ const checkBookmarks = async (bookmarksArray) => {
 
 useEffect(()=> {
   checkBookmarks(bookmarksArray);
-    }, [restaurant])
+}, [restaurant, bookmarksArray])
 
     return (
       <div>
