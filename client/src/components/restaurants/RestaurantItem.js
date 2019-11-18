@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Marker from '../Marker';
 
 const RestaurantItem = ({ restaurant, bookmarksArray }) => {
+console.log("bookmarksArray", bookmarksArray)
 const [ mark, setMark ] = useState(false)
 
 const checkBookmarks = async (bookmarksArray) => {
@@ -11,7 +12,7 @@ const checkBookmarks = async (bookmarksArray) => {
 
 useEffect(()=> {
   checkBookmarks(bookmarksArray);
-    }, [bookmarksArray])
+    }, [restaurant])
 
     return (
       <div>
