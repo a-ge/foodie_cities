@@ -30,13 +30,12 @@ export const addBookmark = restaurant => async dispatch => {
   try {
     setLoading();
 
-    const res = await fetch('/bookmarks', {
+    const res = await fetch(`http://localhost:5000/bookmarks/add`, {
       method: 'POST',
       body: JSON.stringify(restaurant),
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      headers: {'Content-Type': 'application/json'}
     });
+
     const data = await res.json();
 
     dispatch({
@@ -51,17 +50,21 @@ export const addBookmark = restaurant => async dispatch => {
   }
 };
 
-export const deleteBookmark = id => async dispatch => {
+export const deleteBookmark = restaurant => async dispatch => {
   try {
     setLoading();
 
-    await fetch(`/bookmarks/${id}`, {
-      method: 'DELETE'
+    const res = await fetch(`http://localhost:5000/bookmarks/delete`, {
+      method: 'POST',
+      body: JSON.stringify(restaurant),
+      headers: {'Content-Type': 'application/json'}
     });
+
+    const data = await res.json();
 
     dispatch({
       type: DELETE_BOOKMARK,
-      payload: id
+      payload: data
     });
   } catch (err) {
     dispatch({
