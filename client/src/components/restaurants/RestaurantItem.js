@@ -27,7 +27,7 @@ useEffect(()=> {
         <div>
           Review Count: {restaurant.review_count}
         </div>
-        <Marker mark={mark}/>
+        <Marker restaurant={restaurant} mark={mark} />
         <br/>
       </div>
     )
