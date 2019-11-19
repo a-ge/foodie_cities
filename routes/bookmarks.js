@@ -2,15 +2,20 @@ const router = require('express').Router();
 let User = require('../models/User');
 let Bookmark = require('../models/Bookmark');
 
+const findUserBookmarks = async (username) => {
+    let userBookmarks = await User.findOne({ username: username }, 'bookmarks');
+    return userBookmarks
+}
+
 router.route('/:user').get(async (req, res) => {
   const username = req.params.user;
 
   try {
-    let findUser = await User.findOne({ username: username }, 'bookmarks');
+    let query = await findUserBookmarks(username);
+    return res.json(query)
+  }
 
-    return res.json(findUser)
-
-  } catch (err) {
+  catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
   }
@@ -40,32 +45,19 @@ router.route('/add').post(async (req, res) => {
         return res.json('User not found.');
       }
 
-      userBookmarkAdd.save()
-        .then(() => res.json('User bookmarks updated!'))
-        .catch(err => res.status(400).json('Error: ' + err));
+      userBookmarkAdd.save(async (err, obj) => {
+        if (err) {
+          res.send(err);
+        }
 
-      const foundBookmark = await Bookmark.findOne({yelpid})
-
-      if (foundBookmark) {
-        console.log('Bookmark already in database.');
-      }
-
-      else {
-        const newBookmark = await new Bookmark(bookmarkItem);
-
-        newBookmark.save((err, obj) => {
-          if (err) {
-            res.send(err);
-          }
-          res.json(obj)
-        })
-      }
+        let query = await findUserBookmarks(user);
+        return res.json(query)
+      })
     }
 
     catch (err) {
       console.error(err.message)
     }
-
 });
 
 router.route('/delete').post(async (req, res) => {
@@ -82,9 +74,14 @@ router.route('/delete').post(async (req, res) => {
       return res.json('Bookmark not found.');
     }
 
-    userBookmarkDelete.save()
-      .then(() => res.json('Bookmark deleted!'))
-      .catch(err => res.status(400).json('Error: ' + err));
+    userBookmarkDelete.save(async (err, obj) => {
+      if (err) {
+        res.send(err);
+      }
+
+      let query = await findUserBookmarks(user);
+      return res.json(query)
+    })
   }
 
   catch (err) {
