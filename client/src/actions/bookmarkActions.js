@@ -60,9 +60,11 @@ export const deleteBookmark = restaurant => async dispatch => {
       headers: {'Content-Type': 'application/json'}
     });
 
+    const data = await res.json();
+
     dispatch({
       type: DELETE_BOOKMARK,
-      payload: restaurant.yelpId
+      payload: data
     });
   } catch (err) {
     dispatch({

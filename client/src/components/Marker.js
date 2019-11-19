@@ -4,11 +4,9 @@ import { addBookmark, deleteBookmark } from '../actions/bookmarkActions'
 
 const Marker = ({ restaurant, mark }) => {
   const [isMarked, setisMarked] = useState(mark)
-  console.log("isMarked", isMarked)
   const dispatch = useDispatch();
 
   const addMark = (restaurant) => {
-    console.log("restaurant", restaurant)
     const restaurantData = {
       "user": "ashleyg",
       "yelpId": restaurant.id,
@@ -16,16 +14,17 @@ const Marker = ({ restaurant, mark }) => {
       "restaurantName": restaurant.name,
       "imageUrl": restaurant.image_url
     }
-    console.log("restaurantData", restaurantData)
+
     dispatch(addBookmark(restaurantData));
     setisMarked(true);
   };
 
   const deleteMark = (restaurant) => {
     const restaurantData = {
-      user: "ashleyg",
-      yelpId: "lJAGnYzku5zSaLnQ_T6_GQ"
+      "user": "ashleyg",
+      "yelpId": restaurant.yelpId
     }
+
     dispatch(deleteBookmark(restaurantData));
     setisMarked(false);
   };
