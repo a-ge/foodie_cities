@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getDbBookmarks } from '../../actions/bookmarkActions';
 import CityButtons from '../restaurants/CityButtons';
 import Bookmarks from '../bookmarks/Bookmarks';
