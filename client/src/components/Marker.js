@@ -3,7 +3,11 @@ import { useDispatch } from 'react-redux';
 import { addBookmark, deleteBookmark } from '../actions/bookmarkActions'
 
 const Marker = ({ restaurant, mark }) => {
+  console.log("test", mark)
+
   const [isMarked, setisMarked] = useState(mark)
+  console.log(restaurant)
+  console.log("isMarked", isMarked)
   const dispatch = useDispatch();
 
   const addMark = (restaurant) => {

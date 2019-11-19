@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import Marker from '../Marker';
 
-const RestaurantItem = ({ restaurant, bookmarksArray }) => {
-const [ mark, setMark ] = useState(false)
-
-const checkBookmarks = async (bookmarksArray) => {
-  const idsArray = await bookmarksArray.map((bookmark) => bookmark.yelpId);
-  setMark(idsArray.includes(restaurant.id))
-  };
-
-useEffect(()=> {
-  checkBookmarks(bookmarksArray);
-}, [restaurant, bookmarksArray])
+const RestaurantItem = ({ restaurant }) => {
+    const bookmarksArray = useSelector((state) => state.bookmarks.bookmarks);
+    const ids = bookmarksArray.map(item => item.yelpId)
+    const isMarked = ids.includes(restaurant.id)
 
     return (
       <div>
@@ -27,7 +21,7 @@ useEffect(()=> {
         <div>
           Review Count: {restaurant.review_count}
         </div>
-        <Marker restaurant={restaurant} mark={mark} />
+        <Marker restaurant={restaurant} mark={isMarked} />
         <br/>
       </div>
     )
