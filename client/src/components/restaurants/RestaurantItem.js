@@ -1,11 +1,45 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { addBookmark, deleteBookmark } from '../../actions/bookmarkActions';
 import Marker from '../Marker';
 
 const RestaurantItem = ({ restaurant }) => {
     const bookmarksArray = useSelector((state) => state.bookmarks.bookmarks);
     const ids = bookmarksArray.map(item => item.yelpId)
+    console.log("ids", ids)
     const isMarked = ids.includes(restaurant.id)
+
+    const dispatch = useDispatch();
+
+    const handleClick = () => {
+      if (isMarked) {
+        const restaurantData = {
+          "user": "ashleyg",
+          "yelpId": restaurant.id
+        }
+        console.log(restaurantData)
+        dispatch(deleteBookmark(restaurantData));
+        return false;
+      }
+
+      else {
+        const restaurantData = {
+          "user": "ashleyg",
+          "yelpId": restaurant.id,
+          "yelpUrl": restaurant.url,
+          "restaurantName": restaurant.name,
+          "imageUrl": restaurant.image_url
+        }
+
+        dispatch(addBookmark(restaurantData));
+        return true;
+      }
+    }
+
+    useEffect(() => {
+    },
+      [bookmarksArray]
+    )
 
     return (
       <div>
@@ -21,7 +55,9 @@ const RestaurantItem = ({ restaurant }) => {
         <div>
           Review Count: {restaurant.review_count}
         </div>
-        <Marker restaurant={restaurant} mark={isMarked} />
+          <input className='marker-button' type='checkbox' checked={isMarked}
+            onChange={handleClick}>
+          </input>
         <br/>
       </div>
     )
