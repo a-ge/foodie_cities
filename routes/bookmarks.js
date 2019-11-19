@@ -53,9 +53,12 @@ router.route('/add').post(async (req, res) => {
       else {
         const newBookmark = await new Bookmark(bookmarkItem);
 
-        newBookmark.save()
-          .then(() => res.json('Bookmark added!'))
-          .catch(err => res.status(400).json('Error: ' + err));
+        newBookmark.save((err, obj) => {
+          if (err) {
+            res.send(err);
+          }
+          res.json(obj)
+        })
       }
     }
 

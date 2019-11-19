@@ -36,7 +36,7 @@ export default (state = initialState, action) => {
     case DELETE_BOOKMARK:
       return {
         ...state,
-        restaurants: state.restaurants.filter(restaurants => restaurants.id !== action.payload),
+        bookmarks: state.bookmarks.filter(bookmark => bookmark.yelpId !== action.payload),
         loading: false
       };
     case SET_LOADING:

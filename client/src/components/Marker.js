@@ -8,13 +8,15 @@ const Marker = ({ restaurant, mark }) => {
   const dispatch = useDispatch();
 
   const addMark = (restaurant) => {
+    console.log("restaurant", restaurant)
     const restaurantData = {
       "user": "ashleyg",
-      "yelpId": "lJAGnYzku5zSaLnQ_T6_GQ",
-      "yelpUrl": "https://www.yelp.com/biz/brendas-french-soul-food-san-francisco-5?adjust_creative=tFd1Luf2rm830mcXSUl8mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=tFd1Luf2rm830mcXSUl8mg",
-      "restaurantName": "Brenda's French Soul Food",
-      "imageUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/sNIJnePGDenUOyewsD8tLg/o.jpg"
+      "yelpId": restaurant.id,
+      "yelpUrl": restaurant.url,
+      "restaurantName": restaurant.name,
+      "imageUrl": restaurant.image_url
     }
+    console.log("restaurantData", restaurantData)
     dispatch(addBookmark(restaurantData));
     setisMarked(true);
   };
