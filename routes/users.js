@@ -19,34 +19,43 @@ router.route('/add').post((req, res) => {
   .catch(err => res.status(400).json('Error: ' + err));
 });
 
-// Get user if exists and check valid password
-router.route('/login/:data').get(async (req, res) => {
-  const usernameInput = req.params.data.username;
-  const passwordInput = req.params.data.password;
+// Get user. If user exists, check valid password
+router.route('/login').get(async (req, res) => {
+  const usernameInput = req.body.username;
+  const passwordInput = req.body.password;
 
-  // const input = req.params.data
-  // req.params = {data: {username:formUsername, password:formPassword}}
-  // input = {username:formUsername, password:formPassword}
+  console.log("username and pw is", usernameInput, passwordInput)
   
-
   try {
-    let findUser = await User.findOne({ usernameInput });
+    let findUser = await User.find({ username: usernameInput });
+    // console.log("user object is", findUser)
 
     if (!findUser) {
-      return res.status(400).json({ msg: 'Invalid Credentials' });
+      return res.status(400).json({ msg: 'Invalid findUser Credentials' });
     }
 
-    const isMatch = passwordInput === findUser.password;
+    console.log("password input is", passwordInput)
+    console.log(typeof passwordInput)
+    console.log("object password is", findUser[0].password)
+    console.log(typeof findUser[0].password)
 
-    if (!isMatch) {
+    if (passwordInput !== findUser[0].password) {
       return res.status(400).json({ msg: 'Invalid Credentials' });
+    } else {
+      return res.json('user found')
     }
 
+    // const isMatch = passwordInput == findUser[0].password;
 
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server Error');
-  }
+    // if (!isMatch) {
+    //   return res.status(400).json({ msg: 'Invalid Credentials' });
+    // }
+
+
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
 
 })
 

@@ -23,7 +23,7 @@ const Navbar = ({ title, icon }) => {
           {isLogged ? <Link to='/logout'>Logout</Link> : <Link to='/login'>Login</Link>}
           </li>
           <li>
-              <Link to='/register'>Register</Link>
+          {isLogged ? '' : <Link to='/register'>Register</Link>}
           </li>
       </ul>
     </div>

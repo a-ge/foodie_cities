@@ -11,7 +11,7 @@ const initialState = {
 users: null,
 loading: false,
 error: null,
-isLogged: true
+isLogged: false
 };
 
 

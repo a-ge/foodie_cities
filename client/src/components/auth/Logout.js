@@ -14,20 +14,24 @@ const Logout = ({ logoutUser }) => {
       };
     
   return (
-    <div className='form-container'>
-      <h1>
-        Are you sure you want to log out?
-      </h1>
-      <form onSubmit={onSubmit}>
-        
-        <input
-          type='submit'
-          value='Logout'
-        />
-      </form>
+    <div>
+    {isLogged ? 
+      <div className='form-container'>
+        <h1>
+          Are you sure you want to log out?
+        </h1>
+        <form onSubmit={onSubmit}>
+          
+          <input
+            type='submit'
+            value='Logout'
+          />
+        </form>
+        </div>
 
-      {isLogged ? <h3>You are logged in</h3> : <h3>You are not logged in</h3>}
+      : <h3>You are not logged in</h3>}
 
+   
     </div>
   );
 
