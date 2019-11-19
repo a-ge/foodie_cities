@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addBookmark, deleteBookmark } from '../../actions/bookmarkActions';
 
 const RestaurantItem = ({ restaurant }) => {
     const bookmarksArray = useSelector((state) => state.bookmarks.bookmarks);
     const ids = bookmarksArray.map(item => item.yelpId)
-    console.log("ids", ids)
     const isMarked = ids.includes(restaurant.id)
 
     const dispatch = useDispatch();
@@ -19,26 +18,18 @@ const RestaurantItem = ({ restaurant }) => {
         console.log(restaurantData)
         dispatch(deleteBookmark(restaurantData));
         return false;
-      }
-
-      else {
-        const restaurantData = {
-          "user": "ashleyg",
-          "yelpId": restaurant.id,
-          "yelpUrl": restaurant.url,
-          "restaurantName": restaurant.name,
-          "imageUrl": restaurant.image_url
+      } else {
+          const restaurantData = {
+            "user": "ashleyg",
+            "yelpId": restaurant.id,
+            "yelpUrl": restaurant.url,
+            "restaurantName": restaurant.name,
+            "imageUrl": restaurant.image_url
+          }
+          dispatch(addBookmark(restaurantData));
+          return true;
         }
-
-        dispatch(addBookmark(restaurantData));
-        return true;
-      }
     }
-
-    useEffect(() => {
-    },
-      [bookmarksArray]
-    )
 
     return (
       <div>

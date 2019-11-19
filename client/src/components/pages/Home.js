@@ -4,7 +4,6 @@ import { getDbBookmarks } from '../../actions/bookmarkActions';
 import CityButtons from '../restaurants/CityButtons';
 import Bookmarks from '../bookmarks/Bookmarks';
 
-
 const Home = () => {
   const dispatch = useDispatch();
   const getBkmks = (user) => dispatch(getDbBookmarks(user));

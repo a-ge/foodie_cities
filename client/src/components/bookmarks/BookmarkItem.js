@@ -10,7 +10,6 @@ const BookmarkItem = ({ bookmark }) => {
       "user": "ashleyg",
       "yelpId": bookmark.yelpId
     }
-
     dispatch(deleteBookmark(restaurantData));
   };
 
