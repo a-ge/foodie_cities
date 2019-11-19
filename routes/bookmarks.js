@@ -40,7 +40,7 @@ router.route('/add').post(async (req, res) => {
         return res.json('User not found.');
       }
 
-      userBookmarkUpdate.save()
+      userBookmarkAdd.save()
         .then(() => res.json('User bookmarks updated!'))
         .catch(err => res.status(400).json('Error: ' + err));
 
@@ -68,11 +68,11 @@ router.route('/add').post(async (req, res) => {
 router.route('/delete').post(async (req, res) => {
   try {
     const user = req.body.user;
-    const bookmarkObject = req.body.bookmarkObject;
-    console.log(bookmarkObject)
+    const yelpId = req.body.yelpId;
+
     const userBookmarkDelete = await User.findOneAndUpdate(
-      { username: user, bookmarks: bookmarkObject },
-      { $pull: { bookmarks: bookmarkObject }}
+      { username: user },
+      { $pull: { bookmarks: { yelpId: yelpId }}}
     )
 
     if (!userBookmarkDelete) {
@@ -83,7 +83,7 @@ router.route('/delete').post(async (req, res) => {
       .then(() => res.json('Bookmark deleted!'))
       .catch(err => res.status(400).json('Error: ' + err));
   }
-  
+
   catch (err) {
     console.error(err.message)
   }
