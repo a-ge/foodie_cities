@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteBookmark } from '../../actions/bookmarkActions'
-import Marker from '../Marker';
 
 const BookmarkItem = ({ bookmark }) => {
   const dispatch = useDispatch();

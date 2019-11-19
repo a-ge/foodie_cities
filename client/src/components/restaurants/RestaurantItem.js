@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addBookmark, deleteBookmark } from '../../actions/bookmarkActions';
-import Marker from '../Marker';
 
 const RestaurantItem = ({ restaurant }) => {
     const bookmarksArray = useSelector((state) => state.bookmarks.bookmarks);
