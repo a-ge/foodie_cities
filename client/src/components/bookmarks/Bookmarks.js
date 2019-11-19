@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getDbBookmarks } from '../../actions/bookmarkActions';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import BookmarkItem from './BookmarkItem';
 
-const Bookmarks = ({ bookmarksArray }) => {
+const Bookmarks = () => {
+  const bookmarksArray = useSelector((state) => state.bookmarks.bookmarks);
 
   return (
     <div>

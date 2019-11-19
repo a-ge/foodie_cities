@@ -1,14 +1,14 @@
 import React from 'react';
 import Marker from '../Marker';
 
-const BookmarkItem = ({ restaurant, bookmark }) => {
+const BookmarkItem = ({ bookmark }) => {
 
   return (
     <div>
       <div>
         {bookmark.restaurantName}
       </div>
-        <Marker restaurant={restaurant} mark={true}/>
+        <Marker restaurant={bookmark} mark={true}/>
       <br/>
     </div>
   );

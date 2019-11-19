@@ -30,13 +30,13 @@ export default (state = initialState, action) => {
     case ADD_BOOKMARK:
       return {
         ...state,
-        bookmarks: [...state.bookmarks, action.payload],
+        bookmarks: action.payload.bookmarks,
         loading: false
       };
     case DELETE_BOOKMARK:
       return {
         ...state,
-        restaurants: state.restaurants.filter(restaurants => restaurants.id !== action.payload),
+        bookmarks: action.payload.bookmarks,
         loading: false
       };
     case SET_LOADING:
