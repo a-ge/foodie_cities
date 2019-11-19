@@ -15,7 +15,6 @@ const RestaurantItem = ({ restaurant }) => {
           "user": "ashleyg",
           "yelpId": restaurant.id
         }
-        console.log(restaurantData)
         dispatch(deleteBookmark(restaurantData));
         return false;
       } else {
