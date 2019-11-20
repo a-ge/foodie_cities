@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addBookmark, deleteBookmark } from '../../actions/bookmarkActions';
 
 const RestaurantItem = ({ restaurant }) => {
+    // const isLogged = useSelector((state) => state.users.isLogged);
+    const isLogged = true
     const bookmarksArray = useSelector((state) => state.bookmarks.bookmarks);
     const ids = bookmarksArray.map(item => item.yelpId)
     const isMarked = ids.includes(restaurant.id)
@@ -44,9 +46,12 @@ const RestaurantItem = ({ restaurant }) => {
         <div>
           Review Count: {restaurant.review_count}
         </div>
+        {isLogged ?
           <input className='marker-button' type='checkbox' checked={isMarked}
             onChange={handleClick}>
           </input>
+          : <br/>
+          }
         <br/>
       </div>
     )
