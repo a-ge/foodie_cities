@@ -15,30 +15,35 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch(action.type) {
+
     case GET_DB_BOOKMARKS:
       return {
         ...state,
         bookmarks: action.payload.bookmarks,
         loading: false
       };
+
     case BOOKMARKS_ERROR:
       console.error(action.payload);
       return {
         ...state,
         error: action.payload
       };
+
     case ADD_BOOKMARK:
       return {
         ...state,
         bookmarks: action.payload.bookmarks,
         loading: false
       };
+
     case DELETE_BOOKMARK:
       return {
         ...state,
         bookmarks: action.payload.bookmarks,
         loading: false
       };
+      
     case SET_LOADING:
       return {
         ...state,

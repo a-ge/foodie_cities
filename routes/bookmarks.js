@@ -8,17 +8,17 @@ const findUserBookmarks = async (username) => {
 }
 
 router.route('/:user').get(async (req, res) => {
-  const username = req.params.user;
+    const username = req.params.user;
 
-  try {
-    let query = await findUserBookmarks(username);
-    return res.json(query)
-  }
+    try {
+      let query = await findUserBookmarks(username);
+      return res.json(query)
+    }
 
-  catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server Error');
-  }
+    catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
 });
 
 router.route('/add').post(async (req, res) => {
@@ -61,32 +61,32 @@ router.route('/add').post(async (req, res) => {
 });
 
 router.route('/delete').post(async (req, res) => {
-  try {
-    const user = req.body.user;
-    const yelpId = req.body.yelpId;
+    try {
+      const user = req.body.user;
+      const yelpId = req.body.yelpId;
 
-    const userBookmarkDelete = await User.findOneAndUpdate(
-      { username: user },
-      { $pull: { bookmarks: { yelpId: yelpId }}}
-    )
+      const userBookmarkDelete = await User.findOneAndUpdate(
+        { username: user },
+        { $pull: { bookmarks: { yelpId: yelpId }}}
+      )
 
-    if (!userBookmarkDelete) {
-      return res.json('Bookmark not found.');
-    }
-
-    userBookmarkDelete.save(async (err, obj) => {
-      if (err) {
-        res.send(err);
+      if (!userBookmarkDelete) {
+        return res.json('Bookmark not found.');
       }
 
-      let query = await findUserBookmarks(user);
-      return res.json(query)
-    })
-  }
+      userBookmarkDelete.save(async (err, obj) => {
+        if (err) {
+          res.send(err);
+        }
 
-  catch (err) {
-    console.error(err.message)
-  }
+        let query = await findUserBookmarks(user);
+        return res.json(query)
+      })
+    }
+
+    catch (err) {
+      console.error(err.message)
+    }
 });
 
 module.exports = router;
