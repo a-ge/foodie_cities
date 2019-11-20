@@ -16,7 +16,7 @@ const Home = () => {
 
   return (
       <div className='home-container'>
-        <div>
+        <div id='restaurants-container'>
           <CityButtons />
         </div>
         <div id='bookmarks-container'>

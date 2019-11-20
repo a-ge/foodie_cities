@@ -24,16 +24,14 @@
   margin: auto;
 }
 
-/* #restaurants-container {
-  width: 45%;
+#restaurants-container {
+  width: 50%;
   float: left;
-  background-color: lightskyblue;
-} */
+}
 
 #bookmarks-container {
-  width: 45%;
+  width: 50%;
   float: left;
-  background-color: rgba(135, 206, 250, 0.5294117647058824)
 }
 
 .form-group {

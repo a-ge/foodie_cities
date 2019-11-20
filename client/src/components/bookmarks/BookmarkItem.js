@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteBookmark } from '../../actions/bookmarkActions'
+import { deleteBookmark } from '../../actions/bookmarkActions';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 const BookmarkItem = ({ bookmark }) => {
   const dispatch = useDispatch();
@@ -15,16 +17,19 @@ const BookmarkItem = ({ bookmark }) => {
 
   return (
     <div>
-      <div>
-        {bookmark.restaurantName}
-      </div>
-      <button className='btn btn-danger btn-sm' onClick={deleteMark}>Delete</button>
-      <br/>
+    <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src={bookmark.imageUrl} />
+      <Card.Body>
+        <Card.Title>{bookmark.restaurantName}</Card.Title>
+        <Card.Text>
+        </Card.Text>
+        <button className='btn btn-danger btn-sm' onClick={deleteMark}>Delete</button>
+      </Card.Body>
+    </Card>
+    <br/>
+
     </div>
   );
 };
 
 export default BookmarkItem
-// <input className='marker-button' type='checkbox' class="filled-in" checked={true}
-//   onChange={deleteMark}>
-// </input>
