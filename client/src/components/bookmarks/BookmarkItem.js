@@ -18,12 +18,13 @@ const BookmarkItem = ({ bookmark }) => {
       <div>
         {bookmark.restaurantName}
       </div>
-      <input className='marker-button' type='checkbox' checked={true}
-        onChange={deleteMark}>
-      </input>
+      <button className='btn btn-danger btn-sm' onClick={deleteMark}>Delete</button>
       <br/>
     </div>
   );
 };
 
 export default BookmarkItem
+// <input className='marker-button' type='checkbox' class="filled-in" checked={true}
+//   onChange={deleteMark}>
+// </input>
