@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addBookmark, deleteBookmark } from '../../actions/bookmarkActions';
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
 const RestaurantItem = ({ restaurant }) => {
     // const isLogged = useSelector((state) => state.users.isLogged);
@@ -34,25 +36,26 @@ const RestaurantItem = ({ restaurant }) => {
 
     return (
       <div>
-        <div>
-          {restaurant.name}
-        </div>
-        <div>
-          <img src={restaurant.image_url} alt="Not available" height="42" width="42" />
-        </div>
-        <div>
-          Rating: {restaurant.rating}
-        </div>
-        <div>
-          Review Count: {restaurant.review_count}
-        </div>
-        {isLogged ?
-          <input className='marker-button' type='checkbox' checked={isMarked}
-            onChange={handleClick}>
-          </input>
-          : <br/>
-          }
-        <br/>
+
+          <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={restaurant.image_url} />
+            <Card.Body>
+              <Card.Title>{restaurant.name}</Card.Title>
+              <Card.Text>
+                <div>
+                <strong>Rating:</strong> {restaurant.rating}
+                </div>
+                <div>
+                  <strong>Review Count:</strong> {restaurant.review_count}
+                </div>
+              </Card.Text>
+              <Button variant="primary">Bookmark Me!</Button>
+            </Card.Body>
+          </Card>
+          <br/>
+
+          {/* Need to call handle click for button */}
+
       </div>
     )
 };
