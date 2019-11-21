@@ -1,6 +1,5 @@
 const router = require('express').Router();
 let User = require('../models/User');
-let Bookmark = require('../models/Bookmark');
 
 const findUserBookmarks = async (username) => {
     let userBookmarks = await User.findOne({ username: username }, 'bookmarks');

@@ -8,10 +8,9 @@ const RestaurantItem = ({ restaurant, cityName }) => {
     const isLogged = useSelector((state) => state.users.isLogged)
     const restaurantsArray = useSelector((state) => state.restaurants.restaurants)
     const bookmarksArray = useSelector((state) => state.bookmarks.bookmarks);
-    const ids = bookmarksArray.map(item => item.restaurants)
-    console.log(ids)
+    const bookmarkObjects = bookmarksArray.map(item => item.restaurants).flat()
+    const ids = bookmarkObjects.map(item => item.yelpId)
     const isMarked = ids.includes(restaurant.id)
-
     const dispatch = useDispatch();
 
     const handleClick = () => {
