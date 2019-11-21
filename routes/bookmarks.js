@@ -64,7 +64,6 @@ router.route('/delete').post(async (req, res) => {
     try {
       const user = req.body.user;
       const cityName = req.body.cityName;
-      // const index = req.body.index;
       const yelpId = req.body.yelpId;
 
       const userBookmarkDelete = await User.findOneAndUpdate(

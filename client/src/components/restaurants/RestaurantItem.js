@@ -7,8 +7,7 @@ import Button from 'react-bootstrap/Button'
 const RestaurantItem = ({ restaurant, cityName }) => {
     const isLogged = useSelector((state) => state.users.isLogged)
 
-    const restaurantsArray = useSelector((state) => state.restaurants.restaurants)
-
+    // Check to see if restaurant is in bookmarks
     const bookmarksArray = useSelector((state) => state.bookmarks.bookmarks);
     const bookmarkObjects = bookmarksArray.map(item => item.restaurants).flat()
     const ids = bookmarkObjects.map(item => item.yelpId)
