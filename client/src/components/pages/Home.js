@@ -21,10 +21,10 @@ const Home = () => {
   return (
       <Container className='home-container' flex-wrap='nowrap'>
         <Row>
-          <Col xs={12} md={8}>
+          <Col xs={13} md={9}>
               <CityButtons />
           </Col>
-          <Col xs={6} md={4}>
+          <Col className='bookmarks-container' xs={5} md={3}>
               {isLogged ? <Bookmarks /> :  <div>Please log in to save bookmarks.</div>}
           </Col>
         </Row>

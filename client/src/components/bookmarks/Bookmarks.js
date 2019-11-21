@@ -15,25 +15,27 @@ const Bookmarks = () => {
 
     for (let i=0; i < bookmarksArray.length; i++) {
       if (bookmarksArray[i]) {
-        table.push(<Card>
-                    <Card.Title>{bookmarksArray[i].city}</Card.Title>
-                    {bookmarksArray[i].restaurants.map((bookmark, index) =>
-                      <Row><BookmarkItem bookmark={bookmark} cityName={bookmarksArray[i].city} index={index} key={index} /></Row>
-                    )}
-                  </Card>)
-      }
-    }
+        table.push(
+          <Card>
+            <Card.Title>{bookmarksArray[i].city}</Card.Title>
+            {bookmarksArray[i].restaurants.map((bookmark, index) =>
+              <Row><BookmarkItem bookmark={bookmark} cityName={bookmarksArray[i].city} index={index} key={index} /></Row>
+            )}
+          </Card>
+        );
+      };
+    };
 
-    setBookmarks(table)
-  }
+    setBookmarks(table);
+  };
 
   useEffect(() => {
     getBookmarks();
-  }, [bookmarksArray])
+  }, [bookmarksArray]);
 
   return (
     <div>
-      BOOKMARKS
+      <strong>BOOKMARKS</strong>
       <Container>
         {bookmarks}
       </Container>
