@@ -20,19 +20,20 @@
 }
 
 .home-container {
-  width: 90%;
+  width: 100%;
+  display: flex;
   margin: auto;
 }
 
-#restaurants-container {
-  width: 50%;
+/* .restaurants-container {
+  width: 100%;
   float: left;
 }
 
-#bookmarks-container {
-  width: 50%;
+.bookmarks-container {
+  width: 100%;
   float: left;
-}
+} */
 
 .form-group {
   margin: 1.2rem 0;
