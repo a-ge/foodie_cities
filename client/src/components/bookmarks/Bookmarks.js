@@ -18,7 +18,7 @@ const Bookmarks = () => {
         table.push(<Card>
                     <Card.Title>{bookmarksArray[i].city}</Card.Title>
                     {bookmarksArray[i].restaurants.map((bookmark, index) =>
-                      <Row><BookmarkItem bookmark={bookmark} key={index} /></Row>
+                      <Row><BookmarkItem bookmark={bookmark} cityName={bookmarksArray[i].city} index={index} key={index} /></Row>
                     )}
                   </Card>)
       }

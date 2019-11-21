@@ -23,7 +23,7 @@ router.route('/:user').get(async (req, res) => {
 router.route('/add').post(async (req, res) => {
     try {
       const user =  req.body.user;
-      const cityName= req.body.cityName;
+      const cityName = req.body.cityName;
       const yelpId = req.body.yelpId;
       const yelpUrl = req.body.yelpUrl;
       const restaurantName = req.body.restaurantName;
@@ -63,11 +63,13 @@ router.route('/add').post(async (req, res) => {
 router.route('/delete').post(async (req, res) => {
     try {
       const user = req.body.user;
+      const cityName = req.body.cityName;
+      // const index = req.body.index;
       const yelpId = req.body.yelpId;
 
       const userBookmarkDelete = await User.findOneAndUpdate(
-        { username: user },
-        { $pull: { bookmarks: { yelpId: yelpId }}}
+        { username: user, "bookmarks.city": cityName},
+        { $pull: { "bookmarks.$.restaurants": { yelpId: yelpId } }}
       )
 
       if (!userBookmarkDelete) {

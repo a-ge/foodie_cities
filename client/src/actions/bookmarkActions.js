@@ -25,7 +25,7 @@ export const getDbBookmarks = user => async dispatch => {
   }
 };
 
-export const addBookmark = (restaurant) => async dispatch => {
+export const addBookmark = restaurant => async dispatch => {
   try {
     setLoading();
 

@@ -6,17 +6,21 @@ import Button from 'react-bootstrap/Button'
 
 const RestaurantItem = ({ restaurant, cityName }) => {
     const isLogged = useSelector((state) => state.users.isLogged)
+
     const restaurantsArray = useSelector((state) => state.restaurants.restaurants)
+
     const bookmarksArray = useSelector((state) => state.bookmarks.bookmarks);
     const bookmarkObjects = bookmarksArray.map(item => item.restaurants).flat()
     const ids = bookmarkObjects.map(item => item.yelpId)
     const isMarked = ids.includes(restaurant.id)
+
     const dispatch = useDispatch();
 
     const handleClick = () => {
       if (isMarked) {
         const restaurantData = {
           "user": "ashleyg",
+          "cityName": cityName,
           "yelpId": restaurant.id
         }
         dispatch(deleteBookmark(restaurantData));
@@ -50,6 +54,7 @@ const RestaurantItem = ({ restaurant, cityName }) => {
                 </div>
               </Card.Text>
               // undo changes for this part before pulling from master. need only jess's changes
+              // does clicking restaurant button delete?
               <Button variant="primary" onClick={handleClick}>Bookmark Me!</Button>
             </Card.Body>
           </Card>
