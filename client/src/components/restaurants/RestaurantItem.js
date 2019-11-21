@@ -4,11 +4,12 @@ import { addBookmark, deleteBookmark } from '../../actions/bookmarkActions';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
-const RestaurantItem = ({ restaurant }) => {
-    // const isLogged = useSelector((state) => state.users.isLogged);
-    const isLogged = true
+const RestaurantItem = ({ restaurant, cityName }) => {
+    const isLogged = useSelector((state) => state.users.isLogged)
+    const restaurantsArray = useSelector((state) => state.restaurants.restaurants)
     const bookmarksArray = useSelector((state) => state.bookmarks.bookmarks);
-    const ids = bookmarksArray.map(item => item.yelpId)
+    const ids = bookmarksArray.map(item => item.restaurants)
+    console.log(ids)
     const isMarked = ids.includes(restaurant.id)
 
     const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const RestaurantItem = ({ restaurant }) => {
       } else {
           const restaurantData = {
             "user": "ashleyg",
+            "cityName": cityName,
             "yelpId": restaurant.id,
             "yelpUrl": restaurant.url,
             "restaurantName": restaurant.name,
@@ -36,7 +38,6 @@ const RestaurantItem = ({ restaurant }) => {
 
     return (
       <div>
-
           <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={restaurant.image_url} href={restaurant.yelpUrl}/>
             <Card.Body>
@@ -49,13 +50,11 @@ const RestaurantItem = ({ restaurant }) => {
                   <strong>Review Count:</strong> {restaurant.review_count}
                 </div>
               </Card.Text>
-              <Button variant="primary">Bookmark Me!</Button>
+              // undo changes for this part before pulling from master. need only jess's changes
+              <Button variant="primary" onClick={handleClick}>Bookmark Me!</Button>
             </Card.Body>
           </Card>
           <br/>
-
-          {/* Need to call handle click for button */}
-
       </div>
     )
 };

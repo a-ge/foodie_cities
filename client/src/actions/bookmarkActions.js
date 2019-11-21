@@ -17,7 +17,6 @@ export const getDbBookmarks = user => async dispatch => {
       type: GET_DB_BOOKMARKS,
       payload: data
     });
-
   } catch (err) {
     dispatch({
       type: BOOKMARKS_ERROR,
@@ -26,7 +25,7 @@ export const getDbBookmarks = user => async dispatch => {
   }
 };
 
-export const addBookmark = restaurant => async dispatch => {
+export const addBookmark = (restaurant) => async dispatch => {
   try {
     setLoading();
 

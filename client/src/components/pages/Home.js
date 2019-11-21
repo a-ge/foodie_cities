@@ -19,12 +19,12 @@ const Home = () => {
   }, [])
 
   return (
-      <Container>
+      <Container className='home-container' flex-wrap='nowrap'>
         <Row>
-          <Col>
+          <Col xs={12} md={8}>
               <CityButtons />
           </Col>
-          <Col>
+          <Col xs={6} md={4}>
               {isLogged ? <Bookmarks /> :  <div>Please log in to save bookmarks.</div>}
           </Col>
         </Row>

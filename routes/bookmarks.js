@@ -24,6 +24,7 @@ router.route('/:user').get(async (req, res) => {
 router.route('/add').post(async (req, res) => {
     try {
       const user =  req.body.user;
+      const cityName= req.body.cityName;
       const yelpId = req.body.yelpId;
       const yelpUrl = req.body.yelpUrl;
       const restaurantName = req.body.restaurantName;
@@ -37,8 +38,8 @@ router.route('/add').post(async (req, res) => {
       }
 
       const userBookmarkAdd = await User.findOneAndUpdate(
-        { username: user },
-        { $push: { bookmarks: bookmark }}
+        { username: user, "bookmarks.city": cityName },
+        { $push: { "bookmarks.$.restaurants": bookmark }}
       )
 
       if (!userBookmarkAdd) {
