@@ -4,9 +4,13 @@ import { getDbBookmarks } from '../../actions/bookmarkActions';
 import CityButtons from '../restaurants/CityButtons';
 import Bookmarks from '../bookmarks/Bookmarks';
 
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 const Home = () => {
-  // const isLogged = useSelector((state) => state.users.isLogged);
-  const isLogged = true
+  const isLogged = useSelector((state) => state.users.isLogged);
+
   const dispatch = useDispatch();
   const getBkmks = (user) => dispatch(getDbBookmarks(user));
 
@@ -15,14 +19,16 @@ const Home = () => {
   }, [])
 
   return (
-      <div className='home-container'>
-        <div id='restaurants-container'>
-          <CityButtons />
-        </div>
-        <div id='bookmarks-container'>
-          {isLogged ? <Bookmarks /> :  <div>Please log in to save bookmarks.</div>}
-        </div>
-      </div>
+      <Container>
+        <Row>
+          <Col>
+              <CityButtons />
+          </Col>
+          <Col>
+              {isLogged ? <Bookmarks /> :  <div>Please log in to save bookmarks.</div>}
+          </Col>
+        </Row>
+      </Container>
   )
 }
 
