@@ -1,6 +1,5 @@
 const router = require('express').Router();
 let User = require('../models/User');
-let Bookmark = require('../models/Bookmark');
 
 const findUserBookmarks = async (username) => {
     let userBookmarks = await User.findOne({ username: username }, 'bookmarks');
@@ -24,6 +23,7 @@ router.route('/:user').get(async (req, res) => {
 router.route('/add').post(async (req, res) => {
     try {
       const user =  req.body.user;
+      const cityName = req.body.cityName;
       const yelpId = req.body.yelpId;
       const yelpUrl = req.body.yelpUrl;
       const restaurantName = req.body.restaurantName;
@@ -37,8 +37,8 @@ router.route('/add').post(async (req, res) => {
       }
 
       const userBookmarkAdd = await User.findOneAndUpdate(
-        { username: user },
-        { $push: { bookmarks: bookmark }}
+        { username: user, "bookmarks.city": cityName },
+        { $push: { "bookmarks.$.restaurants": bookmark }}
       )
 
       if (!userBookmarkAdd) {
@@ -63,11 +63,12 @@ router.route('/add').post(async (req, res) => {
 router.route('/delete').post(async (req, res) => {
     try {
       const user = req.body.user;
+      const cityName = req.body.cityName;
       const yelpId = req.body.yelpId;
 
       const userBookmarkDelete = await User.findOneAndUpdate(
-        { username: user },
-        { $pull: { bookmarks: { yelpId: yelpId }}}
+        { username: user, "bookmarks.city": cityName},
+        { $pull: { "bookmarks.$.restaurants": { yelpId: yelpId } }}
       )
 
       if (!userBookmarkDelete) {

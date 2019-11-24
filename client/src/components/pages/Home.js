@@ -17,19 +17,19 @@ const Home = () => {
 
   useEffect(() => {
     getBkmks('ashleyg');
-  }, [])
+  }, [isLogged])
 
   return (
-      <Container>
+      <Container className='home-container' flex-wrap='nowrap'>
         <Row>
-          <Col>
-              <CityButtons />
+          <Col xs={13} md={9}>
+            <CityButtons />
           </Col>
-          {loading? <div>loading...</div>:
-          <Col>
-              {isLogged ? <Bookmarks /> :  <div>Please log in to save bookmarks.</div>}
+          <Col className='bookmarks-container' xs={5} md={3}>
+            {loading ? <div>loading...</div> :
+                isLogged ? <Bookmarks /> : <div>Please log in to save bookmarks.</div>
+            }
           </Col>
-          }
         </Row>
       </Container>
   )

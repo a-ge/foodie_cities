@@ -17,7 +17,6 @@ export const getDbBookmarks = user => async dispatch => {
       type: GET_DB_BOOKMARKS,
       payload: data
     });
-
   } catch (err) {
     dispatch({
       type: BOOKMARKS_ERROR,

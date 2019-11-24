@@ -11,7 +11,7 @@ const initialState = {
 users: null,
 loading: false,
 error: null,
-isLogged: false
+isLogged: true
 };
 
 
@@ -65,6 +65,3 @@ export default (state = initialState, action) => {
             return state;
     }
 };
-
-
-  

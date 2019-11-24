@@ -43,7 +43,7 @@ export default (state = initialState, action) => {
         bookmarks: action.payload.bookmarks,
         loading: false
       };
-      
+
     case SET_LOADING:
       return {
         ...state,
