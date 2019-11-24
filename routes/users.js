@@ -4,6 +4,7 @@ let User = require('../models/User');
 
 // Add user
 router.route('/add').post((req, res) => {
+  console.log('logged test')
   const username = req.body.username;
   const email = req.body.email
   const password = req.body.password
@@ -19,12 +20,16 @@ router.route('/add').post((req, res) => {
   .catch(err => res.status(400).json('Error: ' + err));
 });
 
+
 // Get user. If user exists, check valid password
-router.route('/login').get(async (req, res) => {
+router.route('/login').post(async (req, res) => {
+
+  // console.log(req.body)
   const usernameInput = req.body.username;
   const passwordInput = req.body.password;
 
-  console.log("username and pw is", usernameInput, passwordInput)
+
+  // console.log("username and pw is", usernameInput, passwordInput)
   
   try {
     let findUser = await User.find({ username: usernameInput });
@@ -39,7 +44,7 @@ router.route('/login').get(async (req, res) => {
     console.log("object password is", findUser[0].password)
     console.log(typeof findUser[0].password)
 
-    if (passwordInput !== findUser[0].password) {
+    if (passwordInput !== findUser[0].password) {   
       return res.status(400).json({ msg: 'Invalid Credentials' });
     } else {
       return res.json('user found')

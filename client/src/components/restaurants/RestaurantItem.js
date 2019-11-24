@@ -38,7 +38,7 @@ const RestaurantItem = ({ restaurant }) => {
       <div>
 
           <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={restaurant.image_url} href={restaurant.yelpUrl}/>
+            <Card.Img variant="top" src={restaurant.image_url} href={restaurant.url}/>
             <Card.Body>
               <Card.Title>{restaurant.name}</Card.Title>
               <Card.Text>
@@ -49,12 +49,10 @@ const RestaurantItem = ({ restaurant }) => {
                   <strong>Review Count:</strong> {restaurant.review_count}
                 </div>
               </Card.Text>
-              <Button variant="primary">Bookmark Me!</Button>
+              {isMarked ? <Button variant="primary" onClick={handleClick}>Marked!</Button> :<Button variant="primary" onClick={handleClick}>Bookmark Me!</Button>}
             </Card.Body>
           </Card>
           <br/>
-
-          {/* Need to call handle click for button */}
 
       </div>
     )
