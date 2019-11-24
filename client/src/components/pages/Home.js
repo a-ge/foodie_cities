@@ -10,6 +10,7 @@ import Col from 'react-bootstrap/Col';
 
 const Home = () => {
   const isLogged = useSelector((state) => state.users.isLogged);
+  const loading = useSelector((state) => state.users.loading);
 
   const dispatch = useDispatch();
   const getBkmks = (user) => dispatch(getDbBookmarks(user));
@@ -20,14 +21,17 @@ const Home = () => {
 
   return (
       <Container className='home-container' flex-wrap='nowrap'>
-        <Row>
-          <Col xs={13} md={9}>
-              <CityButtons />
-          </Col>
-          <Col className='bookmarks-container' xs={5} md={3}>
-              {isLogged ? <Bookmarks /> :  <div>Please log in to save bookmarks.</div>}
-          </Col>
-        </Row>
+          <Row>
+              <Col xs={13} md={9}>
+                  <CityButtons />
+              </Col>
+              <Col className='bookmarks-container' xs={5} md={3}>
+                  {loading? <div>loading...</div>:
+                      {isLogged ? <Bookmarks /> :
+                          <div>Please log in to save bookmarks.</div>}
+                  }
+              </Col>
+          </Row>
       </Container>
   )
 }

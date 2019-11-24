@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addUser } from '../../actions/userActions';
+import { useHistory } from 'react-router-dom';
+
 
 
 const Register = ({ addUser }) => {
@@ -8,6 +10,8 @@ const Register = ({ addUser }) => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    let history = useHistory();
 
     const onSubmit = e => {
         e.preventDefault();
@@ -24,7 +28,14 @@ const Register = ({ addUser }) => {
         setUsername('');
         setEmail('');
         setPassword('');
+
+        // reroute to Home
+        history.push('/')
       };
+
+    
+    
+    
 
 
     return (

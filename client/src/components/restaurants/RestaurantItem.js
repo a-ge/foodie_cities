@@ -41,7 +41,7 @@ const RestaurantItem = ({ restaurant, cityName }) => {
     return (
       <div>
           <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={restaurant.image_url} href={restaurant.yelpUrl}/>
+            <Card.Img variant="top" src={restaurant.image_url} href={restaurant.url}/>
             <Card.Body>
               <Card.Title>{restaurant.name}</Card.Title>
               <Card.Text>
@@ -52,12 +52,11 @@ const RestaurantItem = ({ restaurant, cityName }) => {
                   <strong>Review Count:</strong> {restaurant.review_count}
                 </div>
               </Card.Text>
-              // undo changes for this part before pulling from master. need only jess's changes
-              // does clicking restaurant button delete?
-              <Button variant="primary" onClick={handleClick}>Bookmark Me!</Button>
+              {isMarked ? <Button variant="primary" onClick={handleClick}>Marked!</Button> :<Button variant="primary" onClick={handleClick}>Bookmark Me!</Button>}
             </Card.Body>
           </Card>
           <br/>
+
       </div>
     )
 };

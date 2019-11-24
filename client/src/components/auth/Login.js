@@ -2,31 +2,16 @@ import React from 'react';
 import { useSelector, connect } from 'react-redux';
 import { loginUser } from '../../actions/userActions';
 
-import axios from 'axios';
-// const fetch = require("node-fetch")
-
-
-// class EasyHTTP {
-//   async post(url, data) {
-//     const response = await fetch(url, {
-//       method: 'POST',
-//       headers: {'Content-type': 'application/json'},
-//       body: JSON.stringify(data)
-//     });
-
-//     const resData = await response.json();
-//     return resData;
-//   }
-// }
-
-// const http = new EasyHTTP;
+import { useHistory } from 'react-router-dom';
 
 const Login = ({ loginUser }) => {
 
     const isLogged = useSelector((state) => state.users.isLogged);
     console.log("login isLogged", isLogged)
 
-    const onSubmit = (e) => {
+    let history = useHistory();
+
+    const onSubmit = async (e) => {
         e.preventDefault();
 
         const formUsername = document.getElementById('username').value;
@@ -34,42 +19,34 @@ const Login = ({ loginUser }) => {
 
         const formData = {"username": formUsername, "password": formPassword}
 
+        console.log("formdata is", formData)
 
-        function postUserFormData() {
+        fetch(`http://localhost:5000/users/login`, {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: {'Content-Type': 'application/json'}
+          })
 
+          .then((res) => res.json())
+          .then((json) => {
+            console.log(json)
+            loginUser()
+            history.push('/')
+          })
 
+        // const response = await fetch(`http://localhost:5000/users/login`, {
+        //   method: 'POST',
+        //   body: JSON.stringify(formData),
+        //   headers: {'Content-Type': 'application/json'}
+        // })
 
-          axios({
-            method: 'post',
-            url: '/users/login',
-            data: {username: formUsername, password: formPassword}
-          });
+        // const json = await response.json()
+        // console.log(json)
 
-
-          // const config = {
-          //   headers: {
-          //     'Content-Type': 'application/json'
-          //   }
-          // };
-
-          // axios.post('http://localhost:5000/users/login', formData, config)
-          // .then((res) =>  console.log("data is", res.data))
-          // .catch((err) => console.log(err))
-
-
-
-
-      
-          //   http.post('http://localhost:5000/users/login', formData)
-          //   .then(data =>  console.log("data is", data))
-          //   // .then(loginUser())
-          //   .catch(err => console.log(err))
-          // }
-
+        // reroute to Home
+        
             
-      };
-      postUserFormData()
-    }
+      }
 
       
     
@@ -109,7 +86,6 @@ const Login = ({ loginUser }) => {
     
     </div>
   );
-
-  }
+}
 
 export default connect(null, { loginUser })(Login);
