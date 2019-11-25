@@ -17,6 +17,7 @@ export const getDbBookmarks = user => async dispatch => {
       type: GET_DB_BOOKMARKS,
       payload: data
     });
+
   } catch (err) {
     dispatch({
       type: BOOKMARKS_ERROR,
@@ -41,6 +42,7 @@ export const addBookmark = restaurant => async dispatch => {
       type: ADD_BOOKMARK,
       payload: data
     });
+
   } catch (err) {
     dispatch({
       type: BOOKMARKS_ERROR,
@@ -65,6 +67,7 @@ export const deleteBookmark = restaurant => async dispatch => {
       type: DELETE_BOOKMARK,
       payload: data
     });
+    
   } catch (err) {
     dispatch({
       type: BOOKMARKS_ERROR,

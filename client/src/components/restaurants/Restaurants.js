@@ -3,7 +3,6 @@ import RestaurantItem from './RestaurantItem';
 import { useSelector } from 'react-redux';
 
 const Restaurants = ({ cityRestaurants, cityName }) => {
-
   const loading = useSelector((state) => state.users.loading);
 
   return (

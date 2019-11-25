@@ -9,7 +9,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const BookmarkItem = ({ bookmark, cityName }) => {
-
   const dispatch = useDispatch();
 
   const deleteMark = () => {

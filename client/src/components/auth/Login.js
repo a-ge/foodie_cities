@@ -4,47 +4,44 @@ import { loginUser } from '../../actions/userActions';
 import { useHistory } from 'react-router-dom';
 
 const Login = ({ loginUser }) => {
+  const isLogged = useSelector((state) => state.users.isLogged);
+  console.log("login isLogged", isLogged)
 
-    const isLogged = useSelector((state) => state.users.isLogged);
-    console.log("login isLogged", isLogged)
+  let history = useHistory();
 
-    let history = useHistory();
+  const onSubmit = async (e) => {
+    e.preventDefault();
 
-    const onSubmit = async (e) => {
-        e.preventDefault();
+    const formUsername = document.getElementById('username').value;
+    const formPassword = document.getElementById('password').value;
 
-        const formUsername = document.getElementById('username').value;
-        const formPassword = document.getElementById('password').value;
+    const formData = {"username": formUsername, "password": formPassword}
 
-        const formData = {"username": formUsername, "password": formPassword}
+    console.log("formdata is", formData)
 
-        console.log("formdata is", formData)
+    fetch(`http://localhost:5000/users/login`, {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: {'Content-Type': 'application/json'}
+    })
+    .then((res) => res.json())
+    .then((json) => {
+      console.log(json)
+      loginUser();
+      history.push('/');
+    })
 
-        fetch(`http://localhost:5000/users/login`, {
-            method: 'POST',
-            body: JSON.stringify(formData),
-            headers: {'Content-Type': 'application/json'}
-          })
+      // const response = await fetch(`http://localhost:5000/users/login`, {
+      //   method: 'POST',
+      //   body: JSON.stringify(formData),
+      //   headers: {'Content-Type': 'application/json'}
+      // })
 
-          .then((res) => res.json())
-          .then((json) => {
-            console.log(json)
-            loginUser()
-            history.push('/')
-          })
+      // const json = await response.json()
+      // console.log(json)
 
-        // const response = await fetch(`http://localhost:5000/users/login`, {
-        //   method: 'POST',
-        //   body: JSON.stringify(formData),
-        //   headers: {'Content-Type': 'application/json'}
-        // })
-
-        // const json = await response.json()
-        // console.log(json)
-
-        // reroute to Home
-
-      }
+      // reroute to Home
+    }
 
   return (
     <div>
@@ -81,6 +78,6 @@ const Login = ({ loginUser }) => {
       }
     </div>
   );
-}
+};
 
 export default connect(null, { loginUser })(Login);

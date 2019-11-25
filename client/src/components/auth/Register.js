@@ -4,35 +4,33 @@ import { addUser } from '../../actions/userActions';
 import { useHistory } from 'react-router-dom';
 
 const Register = ({ addUser }) => {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+  let history = useHistory();
 
-    let history = useHistory();
+  const onSubmit = e => {
+    e.preventDefault();
 
-    const onSubmit = e => {
-        e.preventDefault();
+    const newUser = {
+      username,
+      email,
+      password
+    }
 
-        const newUser = {
-            username,
-            email,
-            password
-        }
+    addUser(newUser)
 
-        addUser(newUser)
+    // Clear Fields
+    setUsername('');
+    setEmail('');
+    setPassword('');
 
-        // Clear Fields
-        setUsername('');
-        setEmail('');
-        setPassword('');
+    // reroute to Home
+    history.push('/')
+  };
 
-        // reroute to Home
-        history.push('/')
-      };
-
-    return (
-
+  return (
     <div>
       <h1>Register</h1>
       <form onSubmit={onSubmit}>

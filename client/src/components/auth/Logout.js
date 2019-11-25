@@ -3,14 +3,13 @@ import { useSelector, connect } from 'react-redux';
 import { logoutUser } from '../../actions/userActions';
 
 const Logout = ({ logoutUser }) => {
+  const isLogged = useSelector((state) => state.users.isLogged);
+  console.log("login isLogged", isLogged)
 
-    const isLogged = useSelector((state) => state.users.isLogged);
-    console.log("login isLogged", isLogged)
-
-    const onSubmit = async (e) => {
-        e.preventDefault();
-        logoutUser();
-      };
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    logoutUser();
+  };
 
   return (
     <div>
@@ -28,6 +27,6 @@ const Logout = ({ logoutUser }) => {
       }
     </div>
   );
-}
+};
 
 export default connect(null, { logoutUser })(Logout);

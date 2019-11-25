@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const Navbar = ({ title, icon }) => {
-
   const isLogged = useSelector((state) => state.users.isLogged);
   console.log("navbar isLogged", isLogged)
 
