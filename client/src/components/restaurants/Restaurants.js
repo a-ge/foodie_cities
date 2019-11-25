@@ -18,7 +18,7 @@ const Restaurants = ({ cityRestaurants, cityName }) => {
         </ul>
       }
     </div>
-  )
-}
+  );
+};
 
-export default Restaurants
+export default Restaurants;

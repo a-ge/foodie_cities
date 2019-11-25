@@ -18,6 +18,7 @@ const BookmarkItem = ({ bookmark, cityName }) => {
       "cityName": cityName,
       "yelpId": bookmark.yelpId
     }
+
     dispatch(deleteBookmark(restaurantData));
   };
 
@@ -46,4 +47,4 @@ const BookmarkItem = ({ bookmark, cityName }) => {
   );
 };
 
-export default BookmarkItem
+export default BookmarkItem;

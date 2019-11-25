@@ -3,10 +3,8 @@ import { connect } from 'react-redux';
 import { addUser } from '../../actions/userActions';
 import { useHistory } from 'react-router-dom';
 
-
-
 const Register = ({ addUser }) => {
-  
+
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -15,7 +13,7 @@ const Register = ({ addUser }) => {
 
     const onSubmit = e => {
         e.preventDefault();
-       
+
         const newUser = {
             username,
             email,
@@ -33,17 +31,10 @@ const Register = ({ addUser }) => {
         history.push('/')
       };
 
-    
-    
-    
-
-
     return (
 
     <div>
-      <h1>
-        Register
-      </h1>
+      <h1>Register</h1>
       <form onSubmit={onSubmit}>
         <div className='form-group'>
           <label htmlFor='name'>Username</label>

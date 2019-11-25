@@ -13,23 +13,22 @@ const Navbar = ({ title, icon }) => {
         <i className={icon} /> {title}
       </h1>
       <ul>
-          <li>
-              <Link to='/'>Home</Link>
-          </li>
-          <li>
-              <Link to='/about'>About</Link>
-          </li>
-          <li>
-          {isLogged ? <Link to='/logout'>Logout</Link> : <Link to='/login'>Login</Link>}
-          </li>
-          <li>
-          {isLogged ? '' : <Link to='/register'>Register</Link>}
-          </li>
+        <li>
+            <Link to='/'>Home</Link>
+        </li>
+        <li>
+            <Link to='/about'>About</Link>
+        </li>
+        <li>
+        {isLogged ? <Link to='/logout'>Logout</Link> : <Link to='/login'>Login</Link>}
+        </li>
+        <li>
+        {isLogged ? '' : <Link to='/register'>Register</Link>}
+        </li>
       </ul>
     </div>
   );
 };
-
 
 Navbar.defaultProps = {
   title: 'Foodie Cities',

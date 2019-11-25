@@ -8,7 +8,7 @@ const yelp = require('yelp-fusion');
 const API_KEY = process.env.YELP_API_KEY;
 const client = yelp.client(API_KEY);
 
-const locations = ['San Francisco, CA', 'New York, NY', 'Atlanta, GA']
+const locations = ['San Francisco, CA', 'New York, NY', 'Atlanta, GA'];
 
 function callYelp(i) {
     const response = client.search({
@@ -20,7 +20,7 @@ function callYelp(i) {
       console.log(e);
     });
     return response;
-}
+};
 
 class EasyHTTP {
     async post(url, data) {
@@ -38,19 +38,19 @@ class EasyHTTP {
 const http = new EasyHTTP;
 
 async function loadDBRestaurants() {
-    for (let i=0; i < locations.length; i++) {
-      const resp = await callYelp(i)
-      const response = resp.jsonBody.businesses
+  for (let i=0; i < locations.length; i++) {
+    const resp = await callYelp(i)
+    const response = resp.jsonBody.businesses
 
-      const cityRestaurants = {
-        cityName: locations[i],
-        restaurants: response
-      }
+    const cityRestaurants = {
+      cityName: locations[i],
+      restaurants: response
+    };
 
-      http.post('http://localhost:5000/restaurants/add', cityRestaurants)
-      .then(data => console.log("data", data))
-      .catch(err => console.log(err))
-    }
+    http.post('http://localhost:5000/restaurants/add', cityRestaurants)
+    .then(data => console.log("data", data))
+    .catch(err => console.log(err))
+  }
 };
 
-loadDBRestaurants()
+loadDBRestaurants();

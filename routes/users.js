@@ -30,7 +30,7 @@ router.route('/login').post(async (req, res) => {
 
 
   // console.log("username and pw is", usernameInput, passwordInput)
-  
+
   try {
     let findUser = await User.find({ username: usernameInput });
     // console.log("user object is", findUser)
@@ -44,10 +44,10 @@ router.route('/login').post(async (req, res) => {
     console.log("object password is", findUser[0].password)
     console.log(typeof findUser[0].password)
 
-    if (passwordInput !== findUser[0].password) {   
+    if (passwordInput !== findUser[0].password) {
       return res.status(400).json({ msg: 'Invalid Credentials' });
     } else {
-      return res.json('user found')
+      return res.json('user found');
     }
 
     // const isMatch = passwordInput == findUser[0].password;

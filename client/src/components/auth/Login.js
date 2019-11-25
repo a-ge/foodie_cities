@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector, connect } from 'react-redux';
 import { loginUser } from '../../actions/userActions';
-
 import { useHistory } from 'react-router-dom';
 
 const Login = ({ loginUser }) => {
@@ -44,16 +43,12 @@ const Login = ({ loginUser }) => {
         // console.log(json)
 
         // reroute to Home
-        
-            
+
       }
 
-      
-    
   return (
     <div>
       {isLogged ? <div> You are logged in </div> :
-    
         <div className='form-container'>
           <h1>
             Account <span className='text-primary'>Login</span>
@@ -82,8 +77,8 @@ const Login = ({ loginUser }) => {
               value='Login'
             />
           </form>
-          </div> }  
-    
+        </div>
+      }
     </div>
   );
 }

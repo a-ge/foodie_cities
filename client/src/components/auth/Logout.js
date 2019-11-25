@@ -9,32 +9,25 @@ const Logout = ({ logoutUser }) => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-
-          logoutUser()
+        logoutUser();
       };
-    
+
   return (
     <div>
-    {isLogged ? 
-      <div className='form-container'>
-        <h1>
-          Are you sure you want to log out?
-        </h1>
-        <form onSubmit={onSubmit}>
-          
-          <input
-            type='submit'
-            value='Logout'
-          />
-        </form>
+      {isLogged ?
+        <div className='form-container'>
+          <h1>Are you sure you want to log out?</h1>
+          <form onSubmit={onSubmit}>
+            <input
+              type='submit'
+              value='Logout'
+            />
+          </form>
         </div>
-
-      : <h3>You are not logged in</h3>}
-
-   
+        : <h3>You are not logged in</h3>
+      }
     </div>
   );
-
-  }
+}
 
 export default connect(null, { logoutUser })(Logout);

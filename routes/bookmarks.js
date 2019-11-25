@@ -3,8 +3,8 @@ let User = require('../models/User');
 
 const findUserBookmarks = async (username) => {
     let userBookmarks = await User.findOne({ username: username }, 'bookmarks');
-    return userBookmarks
-}
+    return userBookmarks;
+};
 
 router.route('/:user').get(async (req, res) => {
     const username = req.params.user;
@@ -34,12 +34,12 @@ router.route('/add').post(async (req, res) => {
           yelpUrl,
           restaurantName,
           imageUrl
-      }
+      };
 
       const userBookmarkAdd = await User.findOneAndUpdate(
         { username: user, "bookmarks.city": cityName },
         { $push: { "bookmarks.$.restaurants": bookmark }}
-      )
+      );
 
       if (!userBookmarkAdd) {
         return res.json('User not found.');
@@ -51,12 +51,12 @@ router.route('/add').post(async (req, res) => {
         }
 
         let query = await findUserBookmarks(user);
-        return res.json(query)
+        return res.json(query);
       })
     }
 
     catch (err) {
-      console.error(err.message)
+      console.error(err.message);
     }
 });
 
@@ -69,7 +69,7 @@ router.route('/delete').post(async (req, res) => {
       const userBookmarkDelete = await User.findOneAndUpdate(
         { username: user, "bookmarks.city": cityName},
         { $pull: { "bookmarks.$.restaurants": { yelpId: yelpId } }}
-      )
+      );
 
       if (!userBookmarkDelete) {
         return res.json('Bookmark not found.');
@@ -81,7 +81,7 @@ router.route('/delete').post(async (req, res) => {
         }
 
         let query = await findUserBookmarks(user);
-        return res.json(query)
+        return res.json(query);
       })
     }
 

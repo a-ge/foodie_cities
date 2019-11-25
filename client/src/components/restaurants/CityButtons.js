@@ -12,7 +12,7 @@ const CityButtons = () => {
 
   useEffect(() => {
     getRests();
-  }, [cityIndex])
+  }, [cityIndex]);
 
   if (!citiesArray) {
     return <div>No cities</div>
@@ -36,9 +36,8 @@ const CityButtons = () => {
           </ul>
           <Restaurants cityName={cityName} cityRestaurants={cityRestaurants} />
         </div>
-      )
-    }
-  }
-}
+      )};
+  };
+};
 
-export default CityButtons
+export default CityButtons;

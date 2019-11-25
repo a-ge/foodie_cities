@@ -4,7 +4,6 @@ import BookmarkItem from './BookmarkItem';
 
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
 
 const Bookmarks = () => {
   const bookmarksArray = useSelector((state) => state.bookmarks.bookmarks);
@@ -42,4 +41,4 @@ const Bookmarks = () => {
   );
 };
 
-export default Bookmarks
+export default Bookmarks;

@@ -8,7 +8,7 @@ const initialState = {
   bookmarks: [],
   loading: false,
   error: null
-}
+};
 
 export default (state = initialState, action) => {
   switch(action.type) {
@@ -32,8 +32,8 @@ export default (state = initialState, action) => {
         ...state,
         error: action.payload
       };
-      
+
     default:
       return state;
-  }
-}
+  };
+};

@@ -17,7 +17,7 @@ mongoose.connect(uri, { useFindAndModify: false, useUnifiedTopology: true, useNe
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
-})
+});
 
 const usersRouter = require('./routes/users');
 const bookmarksRouter = require('./routes/bookmarks');
