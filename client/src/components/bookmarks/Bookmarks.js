@@ -39,7 +39,7 @@ const Bookmarks = () => {
     <div>
       <Table>
         <thead>
-          <tr><th>BOOKMARKS</th></tr>
+          <h4>BOOKMARKS</h4>
         </thead>
         <tbody>
           {bookmarks}
