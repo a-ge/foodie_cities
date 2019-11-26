@@ -38,9 +38,7 @@ const Bookmarks = () => {
   return (
     <div>
       <Table>
-        <thead>
-          <h4>BOOKMARKS</h4>
-        </thead>
+        <thead><h4>BOOKMARKS</h4></thead>
         <tbody>
           {bookmarks}
         </tbody>
