@@ -1,7 +1,5 @@
 # Foodie Cities
-Foodie Cities is a full stack MERN (MongoDB, Express, React/Redux, NodeJS) web application that allows users to view<br/>
- the most popular restaurants in a specific city. The application utilizes the Yelp API to retrieve restaurant data.<br/>
- Popular restaurants are those with the highest number of 'review counts'. Users can also bookmark restaurants if they are logged in.
+Foodie Cities is a full stack MERN (MongoDB, Express, React/Redux, NodeJS) web application that allows users to view the most popular restaurants in a specific city. The application utilizes the Yelp API to retrieve restaurant data. Popular restaurants are those with the highest number of 'review counts'. Users can also bookmark restaurants if they are logged in.
 
 ## Table of Contents
 * [Tech Stack](#techstack)<br/>
