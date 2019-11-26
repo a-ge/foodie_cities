@@ -10,7 +10,7 @@ import Register from './components/auth/Register';
 import { Provider } from 'react-redux';
 import store from './store';
 
-import './App.css';
+import Container from 'react-bootstrap/Container';
 
 const App = () => {
   return (
@@ -18,7 +18,7 @@ const App = () => {
       <Router>
         <Fragment>
         <Navbar/>
-          <div className="container">
+          <Container>
             <Switch>
               <Route exact path='/' component={Home}/>
               <Route exact path='/about' component={About}/>
@@ -26,7 +26,7 @@ const App = () => {
               <Route exact path='/logout' component={Logout}/>
               <Route exact path='/register' component={Register}/>
             </Switch>
-          </div>
+          </Container>
         </Fragment>
       </Router>
     </Provider>

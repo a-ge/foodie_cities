@@ -19,8 +19,13 @@
   display: flex;
 }
 
+.container {
+  max-width: 100%;
+  display: flex;
+}
+
 .home-container {
-  width: 100%;
+  max-width: 100%;
   display: flex;
 }
 

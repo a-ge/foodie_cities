@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import BookmarkItem from './BookmarkItem';
 
+import Table from 'react-bootstrap/Table';
 import Card from 'react-bootstrap/Card';
-import Container from 'react-bootstrap/Container';
 
 const Bookmarks = () => {
   const bookmarksArray = useSelector((state) => state.bookmarks.bookmarks);
@@ -15,12 +15,16 @@ const Bookmarks = () => {
     for (let i=0; i < bookmarksArray.length; i++) {
       if (bookmarksArray[i]) {
         table.push(
-          <Card>
-            <Card.Title>{bookmarksArray[i].city}</Card.Title>
-              {bookmarksArray[i].restaurants.map((bookmark, index) =>
-                <BookmarkItem bookmark={bookmark} cityName={bookmarksArray[i].city} key={index} />
-              )}
-          </Card>
+          <tr>
+            <Card>
+              <Card.Title>{bookmarksArray[i].city}</Card.Title>
+              {
+                bookmarksArray[i].restaurants.map((bookmark, index) =>
+                  <BookmarkItem bookmark={bookmark} cityName={bookmarksArray[i].city} key={index} />
+                )
+              }
+            </Card>
+          </tr>
         );
       };
     };
@@ -33,10 +37,14 @@ const Bookmarks = () => {
 
   return (
     <div>
-      <strong>BOOKMARKS</strong>
-      <Container>
-        {bookmarks}
-      </Container>
+      <Table>
+        <thead>
+          <tr><th>BOOKMARKS</th></tr>
+        </thead>
+        <tbody>
+          {bookmarks}
+        </tbody>
+      </Table>
     </div>
   );
 };
