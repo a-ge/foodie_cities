@@ -29,19 +29,17 @@ const CityButtons = () => {
       const cityRestaurants = cityObject.restaurants
 
       return (
-        <div>
-          <Tabs id="city-tabs" activeKey={cityIndex} onSelect={k => setCityIndex(k)}>
-            {
-              citiesArray.map((city, index) => {
-                return (
-                  <Tab eventKey={index} title={city.cityName}>
-                    <Restaurants cityName={cityName} cityRestaurants={cityRestaurants} />
-                  </Tab>
-                )
-              })
-            }
-          </Tabs>
-        </div>
+        <Tabs id="city-tabs" activeKey={cityIndex} onSelect={k => setCityIndex(k)}>
+          {
+            citiesArray.map((city, index) => {
+              return (
+                <Tab eventKey={index} title={city.cityName}>
+                  <Restaurants cityName={cityName} cityRestaurants={cityRestaurants} />
+                </Tab>
+              )
+            })
+          }
+        </Tabs>
       )};
   };
 };
