@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { logoutUser } from '../../actions/userActions';
+import { clearBookmarksLogout } from '../../actions/bookmarkActions';
 
 const Logout = () => {
   const isLogged = useSelector((state) => state.users.isLogged);
@@ -10,6 +11,7 @@ const Logout = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    dispatch(clearBookmarksLogout())
     dispatch(logoutUser());
   };
 

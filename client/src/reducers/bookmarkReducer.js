@@ -3,7 +3,9 @@ import {
   GET_DB_BOOKMARKS,
   BOOKMARKS_ERROR,
   ADD_BOOKMARK,
-  DELETE_BOOKMARK
+  DELETE_BOOKMARK,
+  CLEAR_BOOKMARKS,
+  CLEAR_BOOKMARKS_ERROR
 } from '../actions/types';
 
 const initialState = {
@@ -49,6 +51,18 @@ export default (state = initialState, action) => {
         ...state,
         loading: true
       };
+    case CLEAR_BOOKMARKS:
+      return {
+        ...state,
+        bookmarks: [],
+        loading:false
+      };
+    case CLEAR_BOOKMARKS_ERROR:
+        console.error(action.payload);
+        return {
+          ...state,
+          error: action.payload
+        };
 
     default:
       return state;

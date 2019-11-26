@@ -3,7 +3,9 @@ import {
   GET_DB_BOOKMARKS,
   BOOKMARKS_ERROR,
   ADD_BOOKMARK,
-  DELETE_BOOKMARK
+  DELETE_BOOKMARK,
+  CLEAR_BOOKMARKS,
+  CLEAR_BOOKMARKS_ERROR
 } from './types';
 
 export const getDbBookmarks = user => async dispatch => {
@@ -75,6 +77,23 @@ export const deleteBookmark = restaurant => async dispatch => {
     });
   }
 };
+
+
+export const clearBookmarksLogout = () => dispatch => {
+  try {
+    setLoading();
+
+    dispatch({
+      type: CLEAR_BOOKMARKS
+    });
+  } catch (err) {
+    dispatch({
+      type: CLEAR_BOOKMARKS_ERROR,
+      payload: err.response.statusText
+    });
+  }
+};
+
 
 // Set loading to true
 export const setLoading = () => {
