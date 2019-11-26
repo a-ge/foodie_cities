@@ -59,14 +59,11 @@ const RestaurantItem = ({ restaurant, cityName }) => {
               <br/>
               <strong>Review Count:</strong> {restaurant.review_count}
             </Card.Text>
-
             {isLogged ? isMarked ? <Button variant="primary" onClick={handleClick}>Marked!</Button> :
               <Button variant="primary" onClick={handleClick}>Bookmark Me!</Button> :
               <Button variant="primary" onClick={handleClick}>Sign in to Bookmark Me!</Button>}
-            
           </Card.Body>
         </Card>
-        <br/>
       </div>
     );
 };
