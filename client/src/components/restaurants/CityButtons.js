@@ -3,6 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getDbRestaurants } from '../../actions/restaurantActions';
 import Restaurants from './Restaurants';
 
+import Tabs from 'react-bootstrap/Tabs';
+import Tab from 'react-bootstrap/Tab';
+
 const CityButtons = () => {
   const [cityIndex, setCityIndex] = useState(0);
   const citiesArray = useSelector((state) => state.restaurants.restaurants);
@@ -27,14 +30,17 @@ const CityButtons = () => {
 
       return (
         <div>
-          <ul>
+          <Tabs id="city-tabs" activeKey={cityIndex} onSelect={k => setCityIndex(k)}>
             {
               citiesArray.map((city, index) => {
-                    return <button onClick={() => setCityIndex(index)} key={index}>{city.cityName}</button>
+                return (
+                  <Tab eventKey={index} title={city.cityName}>
+                    <Restaurants cityName={cityName} cityRestaurants={cityRestaurants} />
+                  </Tab>
+                )
               })
             }
-          </ul>
-          <Restaurants cityName={cityName} cityRestaurants={cityRestaurants} />
+          </Tabs>
         </div>
       )};
   };
