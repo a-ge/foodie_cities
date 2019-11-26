@@ -1,5 +1,7 @@
 # Foodie Cities
-Foodie Cities is a full stack MERN (MongoDB, Express, React/Redux, NodeJS) web application that allows users to view the most popular restaurants in a specific city. The application utilizes the Yelp API to retrieve restaurant data. Popular restaurants are those with the highest number of 'review counts'. Users can also bookmark restaurants if they are logged in.
+Foodie Cities is a full stack MERN (MongoDB, Express, React/Redux, NodeJS) web application that allows users to view<br/>
+ the most popular restaurants in a specific city. The application utilizes the Yelp API to retrieve restaurant data.<br/>
+ Popular restaurants are those with the highest number of 'review counts'. Users can also bookmark restaurants if they are logged in.
 
 ## Table of Contents
 * [Tech Stack](#techstack)<br/>
@@ -9,9 +11,9 @@ Foodie Cities is a full stack MERN (MongoDB, Express, React/Redux, NodeJS) web a
 
 <a name="techstack"/></a>
 ## Tech Stack
-**Frontend:** Javascript, React, Redux, HTML, CSS, Bootstrap, Axios</br>
+**Frontend:** Javascript, React, Redux, React-Bootstrap, HTML, CSS, Node-Fetch</br>
 **Backend:** Node, Express, MongoDB Atlas, Mongoose<br/>
-**APIs:** Facebook<br/>
+**APIs:** Yelp<br/>
 
 <a name="Requirements"/></a>
 ## Requirements
@@ -41,7 +43,7 @@ $ cd ..
 Go to [MongoDB](https://www.mongodb.com/), login or create an account.
   - Follow instructions to build a new cluster.
   - Under Security, click 'Database Access' and follow instructions to add new user.
-  - Under Atlas, click 'Clusters'. Under this project cluster, click 'Connect'.
+  - Under Atlas, click 'Clusters'. Under this project cluster, click 'Connect'.<br/>
     Then select 'Connect Your Application'. Copy the "Connection String Only" string provided.
 
 Create a `.env` file in the root directory and save the following in the file:
