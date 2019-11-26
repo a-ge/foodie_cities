@@ -64,6 +64,7 @@ const RestaurantItem = ({ restaurant, cityName }) => {
               <Button variant="primary" onClick={handleClick}>Sign in to Bookmark Me!</Button>}
           </Card.Body>
         </Card>
+        <br/>
       </div>
     );
 };
