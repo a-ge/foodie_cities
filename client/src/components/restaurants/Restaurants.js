@@ -1,22 +1,25 @@
 import React from 'react';
-import RestaurantItem from './RestaurantItem';
 import { useSelector } from 'react-redux';
+import RestaurantItem from './RestaurantItem';
+
+import Container from 'react-bootstrap/Container';
+import CardDeck from 'react-bootstrap/CardDeck';
 
 const Restaurants = ({ cityRestaurants, cityName }) => {
   const loading = useSelector((state) => state.users.loading);
 
   return (
-    <div   id='restaurants-container'>
-      {loading ? <div>loading...</div>:
-        <ul>
+    <Container>
+      {loading ? <div>loading...</div> :
+        <CardDeck>
           {
             cityRestaurants.map((restaurant, index) =>
               <RestaurantItem restaurant={restaurant} cityName={cityName} key={index} />
             )
           }
-        </ul>
+        </CardDeck>
       }
-    </div>
+    </Container>
   );
 };
 
