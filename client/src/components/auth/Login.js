@@ -1,12 +1,13 @@
 import React from 'react';
-import { useSelector, connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { loginUser } from '../../actions/userActions';
 import { useHistory } from 'react-router-dom';
 
-const Login = ({ loginUser }) => {
+const Login = () => {
   const isLogged = useSelector((state) => state.users.isLogged);
   console.log("login isLogged", isLogged)
 
+  const dispatch = useDispatch();
   let history = useHistory();
 
   const onSubmit = async (e) => {
@@ -27,7 +28,7 @@ const Login = ({ loginUser }) => {
     .then((res) => res.json())
     .then((json) => {
       console.log(json)
-      loginUser();
+      dispatch(loginUser());
       history.push('/');
     })
 
@@ -80,4 +81,4 @@ const Login = ({ loginUser }) => {
   );
 };
 
-export default connect(null, { loginUser })(Login);
+export default Login;

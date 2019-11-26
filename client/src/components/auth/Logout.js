@@ -1,14 +1,16 @@
 import React from 'react';
-import { useSelector, connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { logoutUser } from '../../actions/userActions';
 
-const Logout = ({ logoutUser }) => {
+const Logout = () => {
   const isLogged = useSelector((state) => state.users.isLogged);
   console.log("login isLogged", isLogged)
 
+  const dispatch = useDispatch();
+
   const onSubmit = async (e) => {
     e.preventDefault();
-    logoutUser();
+    dispatch(logoutUser());
   };
 
   return (
@@ -29,4 +31,4 @@ const Logout = ({ logoutUser }) => {
   );
 };
 
-export default connect(null, { logoutUser })(Logout);
+export default Logout;

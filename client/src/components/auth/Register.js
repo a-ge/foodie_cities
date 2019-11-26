@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addUser } from '../../actions/userActions';
 import { useHistory } from 'react-router-dom';
 
-const Register = ({ addUser }) => {
+const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   let history = useHistory();
+
+  const dispatch = useDispatch();
 
   const onSubmit = e => {
     e.preventDefault();
@@ -19,7 +21,7 @@ const Register = ({ addUser }) => {
       password
     }
 
-    addUser(newUser)
+    dispatch(addUser(newUser))
 
     // Clear Fields
     setUsername('');
@@ -77,4 +79,4 @@ const Register = ({ addUser }) => {
   );
 };
 
-export default connect(null, { addUser })(Register);
+export default Register;
