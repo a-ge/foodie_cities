@@ -9,13 +9,14 @@ import Tab from 'react-bootstrap/Tab';
 const CityButtons = () => {
   const [cityIndex, setCityIndex] = useState(0);
   const citiesArray = useSelector((state) => state.restaurants.restaurants);
+  console.log(citiesArray)
 
   const dispatch = useDispatch();
-  const getRestaurants = () => dispatch(getDbRestaurants());
-  
+
   useEffect(() => {
+    const getRestaurants = () => dispatch(getDbRestaurants());
     getRestaurants();
-  });
+  }, [dispatch]);
 
   if (!citiesArray) {
     return <div>No cities</div>
