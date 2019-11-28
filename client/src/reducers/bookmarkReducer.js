@@ -50,17 +50,18 @@ export default (state = initialState, action) => {
         ...state,
         loading: true
       };
+
     case CLEAR_BOOKMARKS:
       return {
-        ...state,
         bookmarks: [],
-        loading:false
+        loading:false,
+        error: null
       };
+      
     case CLEAR_BOOKMARKS_ERROR:
-        console.error(action.payload);
-        return {
-          ...state,
-          error: action.payload
+      return {
+        ...state,
+        error: action.payload
         };
 
     default:

@@ -69,7 +69,7 @@ export const deleteBookmark = restaurant => async dispatch => {
       type: DELETE_BOOKMARK,
       payload: data
     });
-    
+
   } catch (err) {
     dispatch({
       type: BOOKMARKS_ERROR,
@@ -86,6 +86,7 @@ export const clearBookmarksLogout = () => dispatch => {
     dispatch({
       type: CLEAR_BOOKMARKS
     });
+    
   } catch (err) {
     dispatch({
       type: CLEAR_BOOKMARKS_ERROR,
