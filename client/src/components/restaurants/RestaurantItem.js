@@ -16,7 +16,7 @@ const RestaurantItem = ({ restaurant, cityName }) => {
       const bookmarkObjects = bookmarksArray.map(item => item.restaurants).flat();
       const ids = bookmarkObjects.map(item => item.yelpId);
       setIsMarked(ids.includes(restaurant.id));
-    }, [bookmarksArray]);
+    }, [bookmarksArray, restaurant.id]);
 
     const dispatch = useDispatch();
 
