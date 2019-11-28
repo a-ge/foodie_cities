@@ -9,31 +9,32 @@ const Bookmarks = () => {
   const bookmarksArray = useSelector((state) => state.bookmarks.bookmarks);
   const [ bookmarks, setBookmarks] = useState();
 
-  const getBookmarks = () => {
-    let table = [];
-
-    for (let i=0; i < bookmarksArray.length; i++) {
-      if (bookmarksArray[i]) {
-        table.push(
-          <tr key={i}>
-            <td>
-              <Card>
-                <Card.Title>{bookmarksArray[i].city}</Card.Title>
-                {
-                  bookmarksArray[i].restaurants.map((bookmark, index) =>
-                    <BookmarkItem bookmark={bookmark} cityName={bookmarksArray[i].city} key={index} />
-                  )
-                }
-              </Card>
-            </td>
-          </tr>
-        );
-      };
-    };
-    setBookmarks(table);
-  };
-
   useEffect(() => {
+    const getBookmarks = () => {
+      let table = [];
+
+      for (let i=0; i < bookmarksArray.length; i++) {
+        if (bookmarksArray[i]) {
+          table.push(
+            <tr key={i}>
+              <td>
+                <Card>
+                  <Card.Title>{bookmarksArray[i].city}</Card.Title>
+                  {
+                    bookmarksArray[i].restaurants.map((bookmark, index) =>
+                      <BookmarkItem bookmark={bookmark} cityName={bookmarksArray[i].city} key={index} />
+                    )
+                  }
+                </Card>
+              </td>
+            </tr>
+          );
+        };
+      };
+
+      setBookmarks(table);
+    };
+
     getBookmarks();
   }, [bookmarksArray]);
 
