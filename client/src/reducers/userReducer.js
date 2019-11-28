@@ -11,7 +11,7 @@ const initialState = {
 user: null,
 loading: false,
 error: null,
-isLogged: true
+isLogged: false
 };
 
 
@@ -21,7 +21,9 @@ export default (state = initialState, action) => {
     case REGISTER_USER:
       return {
           user: action.payload,
-          loading: false
+          loading: false,
+          error: null,
+          isLogged: true
       };
 
     case REGISTER_ERROR:
@@ -35,7 +37,9 @@ export default (state = initialState, action) => {
     case LOGIN_USER:
       return {
         user: action.payload,
-        loading: false
+        loading: false,
+        error: null,
+        isLogged: true
       };
 
     case LOGIN_ERROR:
@@ -48,9 +52,10 @@ export default (state = initialState, action) => {
 
     case LOGOUT_USER:
       return {
-          ...state,
-          loading: false,
-          isLogged: false
+        user: null,
+        loading: false,
+        error: null,
+        isLogged: false
       };
 
     case LOGOUT_ERROR:
