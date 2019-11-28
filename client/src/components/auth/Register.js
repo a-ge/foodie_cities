@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from '../../actions/userActions';
 import { useHistory } from 'react-router-dom';
 
@@ -8,17 +8,25 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const citiesArray = useSelector((state) => state.restaurants.restaurants);
+
   let history = useHistory();
 
   const dispatch = useDispatch();
 
-  const onSubmit = e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
+
+    const bookmarks = await citiesArray.map((cityObject) => ({
+      city: cityObject.cityName,
+      restaurants: []
+    }))
 
     const newUser = {
       username,
       email,
-      password
+      password,
+      bookmarks
     }
 
     dispatch(addUser(newUser))
