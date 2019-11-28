@@ -25,8 +25,9 @@ const Home = () => {
       </Col>
       <Col xs={6} md={4}>
         {
-          loading ? <div>loading...</div> :
-            isLogged ? <Bookmarks /> : <div>Please log in to save bookmarks.</div>
+          loading ? <div>loading...</div>
+            : isLogged ? <Bookmarks />
+              : <div>Please log in to save bookmarks.</div>
         }
       </Col>
     </Row>
