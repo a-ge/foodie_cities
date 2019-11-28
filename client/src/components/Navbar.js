@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 
 const Navbar = ({ title, icon }) => {
   const isLogged = useSelector((state) => state.users.isLogged);
-  console.log("navbar isLogged", isLogged)
 
   return (
     <div className='navbar'>
