@@ -5,13 +5,12 @@ import { clearBookmarksLogout } from '../../actions/bookmarkActions';
 
 const Logout = () => {
   const isLogged = useSelector((state) => state.users.isLogged);
-  console.log("login isLogged", isLogged)
 
   const dispatch = useDispatch();
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    dispatch(clearBookmarksLogout())
+    dispatch(clearBookmarksLogout());
     dispatch(logoutUser());
   };
 
