@@ -11,11 +11,11 @@ const CityButtons = () => {
   const citiesArray = useSelector((state) => state.restaurants.restaurants);
 
   const dispatch = useDispatch();
-  const getRests = () => dispatch(getDbRestaurants());
-
+  const getRestaurants = () => dispatch(getDbRestaurants());
+  
   useEffect(() => {
-    getRests();
-  }, [cityIndex]);
+    getRestaurants();
+  });
 
   if (!citiesArray) {
     return <div>No cities</div>
