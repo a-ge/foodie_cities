@@ -33,16 +33,16 @@ export default (state = initialState, action) => {
 
     case ADD_BOOKMARK:
       return {
-        ...state,
         bookmarks: action.payload.bookmarks,
-        loading: false
+        loading: false,
+        error: null
       };
 
     case DELETE_BOOKMARK:
       return {
-        ...state,
         bookmarks: action.payload.bookmarks,
-        loading: false
+        loading: false,
+        error: null
       };
 
     case SET_LOADING:
@@ -57,7 +57,7 @@ export default (state = initialState, action) => {
         loading:false,
         error: null
       };
-      
+
     case CLEAR_BOOKMARKS_ERROR:
       return {
         ...state,
