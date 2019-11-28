@@ -23,7 +23,8 @@ const RestaurantItem = ({ restaurant, cityName }) => {
   const handleClick = () => {
     if (!isLogged) {
       alert("Register or log in to save as bookmark.")
-    } return
+      return
+    }
 
     if (isMarked) {
       const restaurantData = {
@@ -36,7 +37,7 @@ const RestaurantItem = ({ restaurant, cityName }) => {
       return false;
     } else {
         const restaurantData = {
-          "user": "ashleyg",
+          "user": user,
           "cityName": cityName,
           "yelpId": restaurant.id,
           "yelpUrl": restaurant.url,
