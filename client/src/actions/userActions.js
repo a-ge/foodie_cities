@@ -13,7 +13,7 @@ export const addUser = user => async dispatch => {
   try {
     setLoading();
 
-    const res = await fetch('http://localhost:3000/users/add', {
+    await fetch('http://localhost:3000/users/add', {
       method: 'POST',
       body: JSON.stringify(user),
       headers: {
@@ -35,12 +35,13 @@ export const addUser = user => async dispatch => {
 };
 
 // Login the user if passed check
-export const loginUser = () => dispatch => {
+export const loginUser = (username) => dispatch => {
   try {
     setLoading();
 
     dispatch({
-      type: LOGIN_USER
+      type: LOGIN_USER,
+      payload: username
     });
 
   } catch (err) {

@@ -34,9 +34,8 @@ export default (state = initialState, action) => {
 
     case LOGIN_USER:
       return {
-          ...state,
-          loading: false,
-          isLogged: true
+        user: action.payload,
+        loading: false
       };
 
     case LOGIN_ERROR:

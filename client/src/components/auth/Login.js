@@ -18,8 +18,6 @@ const Login = () => {
 
     const formData = {"username": formUsername, "password": formPassword}
 
-    console.log("formdata is", formData)
-
     fetch(`http://localhost:5000/users/login`, {
       method: 'POST',
       body: JSON.stringify(formData),
@@ -28,7 +26,7 @@ const Login = () => {
     .then((res) => res.json())
     .then((json) => {
       console.log(json)
-      dispatch(loginUser());
+      dispatch(loginUser(formUsername));
       history.push('/');
     })
 
