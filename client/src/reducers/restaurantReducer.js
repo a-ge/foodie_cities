@@ -5,7 +5,6 @@ import {
 
 const initialState = {
   restaurants: [],
-  bookmarks: [],
   loading: false,
   error: null
 };
@@ -15,9 +14,9 @@ export default (state = initialState, action) => {
 
     case GET_DB_RESTAURANTS:
       return {
-        ...state,
         restaurants: action.payload,
-        loading: false
+        loading: false,
+        error: null
       };
 
     case SET_LOADING:

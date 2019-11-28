@@ -9,7 +9,6 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  restaurants: [],
   bookmarks: [],
   loading: false,
   error: null
@@ -20,9 +19,9 @@ export default (state = initialState, action) => {
 
     case GET_DB_BOOKMARKS:
       return {
-        ...state,
         bookmarks: action.payload.bookmarks,
-        loading: false
+        loading: false,
+        error: null
       };
 
     case BOOKMARKS_ERROR:
