@@ -78,7 +78,6 @@ export const deleteBookmark = restaurant => async dispatch => {
   }
 };
 
-
 export const clearBookmarksLogout = () => dispatch => {
   try {
     setLoading();
@@ -86,7 +85,7 @@ export const clearBookmarksLogout = () => dispatch => {
     dispatch({
       type: CLEAR_BOOKMARKS
     });
-    
+
   } catch (err) {
     dispatch({
       type: CLEAR_BOOKMARKS_ERROR,
@@ -94,7 +93,6 @@ export const clearBookmarksLogout = () => dispatch => {
     });
   }
 };
-
 
 // Set loading to true
 export const setLoading = () => {
