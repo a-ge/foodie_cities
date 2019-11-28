@@ -23,8 +23,8 @@ const RestaurantItem = ({ restaurant, cityName }) => {
   const handleClick = () => {
     if (!isLogged) {
       alert("Register or log in to save as bookmark.")
-    }
-    
+    } return
+
     if (isMarked) {
       const restaurantData = {
         "user": user,
