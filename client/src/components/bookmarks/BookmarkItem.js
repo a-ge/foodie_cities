@@ -22,27 +22,25 @@ const BookmarkItem = ({ bookmark, cityName }) => {
   };
 
   return (
-    <div>
-      <Container >
-        <Card>
-          <Row>
-            <Col xs={6} md={4}>
+    <Container >
+      <Card>
+        <Row>
+          <Col xs={6} md={4}>
+            <Card.Link href={bookmark.yelpUrl}>
+              <Card.Img variant="top" src={bookmark.imageUrl} />
+            </Card.Link>
+          </Col>
+          <Col xs={12} md={8}>
+            <Card.Body>
               <Card.Link href={bookmark.yelpUrl}>
-                <Card.Img variant="top" src={bookmark.imageUrl} />
+                <Card.Title>{bookmark.restaurantName}</Card.Title>
               </Card.Link>
-            </Col>
-            <Col xs={12} md={8}>
-              <Card.Body>
-                <Card.Link href={bookmark.yelpUrl}>
-                  <Card.Title>{bookmark.restaurantName}</Card.Title>
-                </Card.Link>
-                <Button className='btn btn-danger btn-sm' onClick={deleteMark}>Delete</Button>
-              </Card.Body>
-            </Col>
-          </Row>
-        </Card>
-      </Container>
-    </div>
+              <Button className='btn btn-danger btn-sm' onClick={deleteMark}>Delete</Button>
+            </Card.Body>
+          </Col>
+        </Row>
+      </Card>
+    </Container>
   );
 };
 
