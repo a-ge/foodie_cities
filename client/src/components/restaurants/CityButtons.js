@@ -33,7 +33,7 @@ const CityButtons = () => {
           {
             citiesArray.map((city, index) => {
               return (
-                <Tab eventKey={index} title={city.cityName}>
+                <Tab eventKey={index} title={city.cityName} key={index}>
                   <Restaurants cityName={cityName} cityRestaurants={cityRestaurants} />
                 </Tab>
               )
