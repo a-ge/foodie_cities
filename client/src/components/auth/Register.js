@@ -7,7 +7,6 @@ const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const citiesArray = useSelector((state) => state.restaurants.restaurants);
 
   let history = useHistory();
@@ -76,6 +75,7 @@ const Register = () => {
             onChange={e => setPassword(e.target.value)}
             required
             minLength='6'
+            autoComplete="on"
           />
         </div>
         <input
