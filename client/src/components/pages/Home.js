@@ -12,10 +12,10 @@ const Home = () => {
   const loading = useSelector((state) => state.users.loading);
 
   const dispatch = useDispatch();
-  const getBkmks = (user) => dispatch(getDbBookmarks(user));
+  const getBookmarks = (user) => dispatch(getDbBookmarks(user));
 
   useEffect(() => {
-    getBkmks('ashleyg');
+    getBookmarks('ashleyg');
   }, [isLogged]);
 
   return (
