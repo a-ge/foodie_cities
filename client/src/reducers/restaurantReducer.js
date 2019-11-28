@@ -1,7 +1,8 @@
 import {
   GET_DB_RESTAURANTS,
   SET_LOADING,
-  DB_RESTAURANTS_ERROR} from '../actions/types';
+  DB_RESTAURANTS_ERROR
+} from '../actions/types';
 
 const initialState = {
   restaurants: [],
