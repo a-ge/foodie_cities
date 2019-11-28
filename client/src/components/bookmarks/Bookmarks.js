@@ -15,16 +15,14 @@ const Bookmarks = () => {
     for (let i=0; i < bookmarksArray.length; i++) {
       if (bookmarksArray[i]) {
         table.push(
-          <tr>
-            <Card>
-              <Card.Title>{bookmarksArray[i].city}</Card.Title>
-              {
-                bookmarksArray[i].restaurants.map((bookmark, index) =>
-                  <BookmarkItem bookmark={bookmark} cityName={bookmarksArray[i].city} key={index} />
-                )
-              }
-            </Card>
-          </tr>
+          <tr><td><Card>
+            <Card.Title>{bookmarksArray[i].city}</Card.Title>
+            {
+              bookmarksArray[i].restaurants.map((bookmark, index) =>
+                <BookmarkItem bookmark={bookmark} cityName={bookmarksArray[i].city} key={index} />
+              )
+            }
+          </Card></td></tr>
         );
       };
     };
