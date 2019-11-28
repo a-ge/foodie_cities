@@ -70,7 +70,6 @@ export const logoutUser = () => dispatch => {
   }
 };
 
-
   // Set loading to true
 export const setLoading = () => {
   return {
