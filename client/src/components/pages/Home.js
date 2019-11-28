@@ -8,14 +8,15 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const Home = () => {
+  const user = useSelector((state) => state.users.user);
   const isLogged = useSelector((state) => state.users.isLogged);
   const loading = useSelector((state) => state.users.loading);
 
   const dispatch = useDispatch();
-  const getBookmarks = (user) => dispatch(getDbBookmarks(user));
+  const getBookmarks = (username) => dispatch(getDbBookmarks(user));
 
   useEffect(() => {
-    getBookmarks('ashleyg');
+    getBookmarks(user);
   }, [isLogged]);
 
   return (
