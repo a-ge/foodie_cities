@@ -13,11 +13,13 @@ const Home = () => {
   const loading = useSelector((state) => state.users.loading);
 
   const dispatch = useDispatch();
-  const getBookmarks = (username) => dispatch(getDbBookmarks(user));
 
   useEffect(() => {
-    getBookmarks(user);
-  }, [isLogged]);
+    if (user) {
+      const getBookmarks = (username) => dispatch(getDbBookmarks(user));
+      getBookmarks(user);
+    }
+  }, [user, dispatch]);
 
   return (
     <Row>
