@@ -21,11 +21,9 @@ export const addUser = user => async dispatch => {
       }
     });
 
-    const data = await res.json();
-
     dispatch({
       type: REGISTER_USER,
-      payload: data
+      payload: user.username
     });
 
   } catch (err) {

@@ -8,7 +8,7 @@ import { REGISTER_USER,
 } from '../actions/types';
 
 const initialState = {
-users: null,
+user: null,
 loading: false,
 error: null,
 isLogged: true
@@ -20,8 +20,7 @@ export default (state = initialState, action) => {
 
     case REGISTER_USER:
       return {
-          ...state,
-          users: [...state.users, action.payload],
+          user: action.payload,
           loading: false
       };
 
