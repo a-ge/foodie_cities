@@ -8,7 +8,13 @@ const Navbar = ({ title, icon }) => {
   return (
     <div className='navbar'>
       <h1>
-        <i className={icon} /> {title}
+
+        <img src="/../../../public/food.svg" style={{width:40, height:40}}/>
+
+
+       <Link to='/'>
+          {title}
+        </Link>
       </h1>
       <ul>
         <li>
