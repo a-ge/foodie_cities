@@ -23,10 +23,10 @@ const Home = () => {
 
   return (
     <Row>
-      <Col xs={12} md={8}>
+      <Col>
         <CityButtons />
       </Col>
-      <Col xs={6} md={4}>
+      <Col>
         {
           loading ? <div>loading...</div>
             : isLogged ? <Bookmarks />
