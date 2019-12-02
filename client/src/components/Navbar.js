@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import mySvg from '../food.svg'
 
 const Navbar = ({ title, icon }) => {
   const isLogged = useSelector((state) => state.users.isLogged);
@@ -9,7 +10,7 @@ const Navbar = ({ title, icon }) => {
     <div className='navbar'>
       <h1>
 
-        <img src="/../../../public/food.svg" style={{width:40, height:40}}/>
+        <img src={mySvg} style={{width:40, height:40}}/>
 
 
        <Link to='/'>
