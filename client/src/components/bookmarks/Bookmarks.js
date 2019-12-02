@@ -4,6 +4,7 @@ import BookmarkItem from './BookmarkItem';
 
 import Table from 'react-bootstrap/Table';
 import Card from 'react-bootstrap/Card';
+import Modal from 'react-bootstrap/Modal'
 
 const Bookmarks = () => {
   const bookmarksArray = useSelector((state) => state.bookmarks.bookmarks);
@@ -41,11 +42,13 @@ const Bookmarks = () => {
   return (
     <div>
       <h4>BOOKMARKS</h4>
-      <Table>
-        <tbody>
-          {bookmarks}
-        </tbody>
-      </Table>
+      <Modal.Body style={{'max-height': 'calc(100vh - 210px)', 'overflow-y': 'auto'}}>
+        <Table>
+          <tbody>
+            {bookmarks}
+          </tbody>
+        </Table>
+      </Modal.Body>
     </div>
   );
 };
