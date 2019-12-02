@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteBookmark } from '../../actions/bookmarkActions';
 
 import Card from 'react-bootstrap/Card';
@@ -9,11 +9,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const BookmarkItem = ({ bookmark, cityName }) => {
+  const user = useSelector((state) => state.users.user);
   const dispatch = useDispatch();
 
   const deleteMark = () => {
     const restaurantData = {
-      "user": "ashleyg",
+      "user": user,
       "cityName": cityName,
       "yelpId": bookmark.yelpId
     }
