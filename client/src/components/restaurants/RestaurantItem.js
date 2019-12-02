@@ -62,7 +62,7 @@ const RestaurantItem = ({ restaurant, cityName }) => {
             <strong>Review Count:</strong> {restaurant.review_count}
           </Card.Text>
           {
-            isMarked ? <Button variant="primary" onClick={handleClick}>Marked!</Button>
+            isMarked ? <Button className='btn-danger' variant="primary" onClick={handleClick}>Marked!</Button>
               : <Button variant="primary" onClick={handleClick}>Bookmark Me!</Button>
           }
         </Card.Body>
