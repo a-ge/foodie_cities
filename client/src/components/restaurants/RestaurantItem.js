@@ -57,7 +57,12 @@ const RestaurantItem = ({ restaurant, cityName }) => {
         <Card.Body>
           <Card.Title>{restaurant.name}</Card.Title>
           <Card.Text>
-            <strong>Rating:</strong> {restaurant.rating}
+            <strong>Rating:</strong> 
+
+            <div className="ratings">
+                <div className="empty-stars"></div>
+                <div className="full-stars" style={{width:restaurant.rating|parseFloat(5*100)}}></div>
+              </div>
             <br/>
             <strong>Review Count:</strong> {restaurant.review_count}
           </Card.Text>
