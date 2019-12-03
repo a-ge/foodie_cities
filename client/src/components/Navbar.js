@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import mySvg from '../food.svg'
+import mySvg from '../static/food.svg'
 
 const Navbar = ({ title, icon }) => {
   const isLogged = useSelector((state) => state.users.isLogged);
