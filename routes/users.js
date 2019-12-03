@@ -30,11 +30,11 @@ router.route('/login').post(async (req, res) => {
     let findUser = await User.find({ username: usernameInput });
 
     if (!findUser) {
-      return res.status(400).json({ msg: 'Invalid findUser Credentials' });
+      return res.status(400).json('Invalid Username');
     }
 
     if (passwordInput !== findUser[0].password) {
-      return res.status(400).json('Invalid Credentials');
+      return res.status(400).json('Invalid Password');
 
     } else {
       return res.json('User Found');

@@ -28,6 +28,8 @@ const Login = () => {
       if (json === 'User Found'){
       dispatch(loginUser(formUsername));
       history.push('/');
+      } else {
+        alert("Username or password is incorrect.")
       }
     })
 
