@@ -8,7 +8,7 @@ Foodie Cities is a full stack MERN (MongoDB, Express, React/Redux, NodeJS) web a
 
 <a name="techstack"/></a>
 ## Tech Stack
-**Frontend:** Javascript, React, Redux, React-Bootstrap, HTML, CSS, Node-Fetch</br>
+**Frontend:** Javascript, React, Redux, React-Bootstrap, HTML, CSS</br>
 **Backend:** Node, Express, MongoDB Atlas, Mongoose<br/>
 **APIs:** Yelp<br/>
 
