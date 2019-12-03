@@ -6,18 +6,18 @@ import {
 
 // Register User to server
 export const addUser = user => async dispatch => {
-    await fetch('http://localhost:3000/users/add', {
-      method: 'POST',
-      body: JSON.stringify(user),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
+  await fetch('http://localhost:3000/users/add', {
+    method: 'POST',
+    body: JSON.stringify(user),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
 
-    dispatch({
-      type: REGISTER_USER,
-      payload: user.username
-    });
+  dispatch({
+    type: REGISTER_USER,
+    payload: user.username
+  });
 };
 
 // Login the user if passed check
