@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getDbBookmarks } from '../../actions/bookmarkActions';
 import CityButtons from '../restaurants/CityButtons';
 import Bookmarks from '../bookmarks/Bookmarks';
+import LoggedOutBookmarks from '../bookmarks/LoggedOutBookmarks';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -30,7 +31,7 @@ const Home = () => {
         {
           loading ? <div>loading...</div>
             : isLogged ? <Bookmarks />
-              : <div>Please log in to save bookmarks.</div>
+              : <LoggedOutBookmarks />
         }
       </Col>
     </Row>
