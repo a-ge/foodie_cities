@@ -54,7 +54,7 @@ const RestaurantItem = ({ restaurant, cityName }) => {
     <div>
       <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src={restaurant.image_url} href={restaurant.url}
-        style={{ height:'15vw', objectfit:'cover' }}/>
+          style={{ height:'15vw', objectfit:'cover' }}/>
         <Card.Body>
           <Card.Title>{restaurant.name}</Card.Title>
           <Card.Text>
