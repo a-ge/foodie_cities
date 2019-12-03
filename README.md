@@ -3,25 +3,17 @@ Foodie Cities is a full stack MERN (MongoDB, Express, React/Redux, NodeJS) web a
 
 ## Table of Contents
 * [Tech Stack](#techstack)<br/>
-* [Requirements](#Requirements)<br/>
 * [Setup/Installation](#installation)<br/>
 * [Demo](#demo)<br/>
 
 <a name="techstack"/></a>
 ## Tech Stack
-**Frontend:** Javascript, React, Redux, React-Bootstrap, HTML, CSS, Node-Fetch</br>
+**Frontend:** Javascript, React, Redux, React-Bootstrap, HTML, CSS</br>
 **Backend:** Node, Express, MongoDB Atlas, Mongoose<br/>
 **APIs:** Yelp<br/>
 
-<a name="Requirements"/></a>
-## Requirements
-MongoDB shell version v4.2.1
-<br>
-Node v10.16.0
-
 <a name="installation"/></a>
 ## Setup/Installation
-Get Client ID and Key from [Yelp](https://www.yelp.com/fusion)
 
 On local machine, clone the Foodie Cities repository:
 ```
@@ -31,13 +23,14 @@ In the foodie_cities root directory, install dependencies:
 ```
 $ npm install
 ```
-Then also install React dependencies in the client folder:
+Then also install dependencies from the package.json file in the client folder:
 ```
 $ cd client
 $ npm install
 $ cd ..
 ```
-
+Get Client ID and Key from [Yelp](https://www.yelp.com/fusion)
+<br>
 Go to [MongoDB](https://www.mongodb.com/), login or create an account.
   - Follow instructions to build a new cluster.
   - Under Security, click 'Database Access' and follow instructions to add new user.
@@ -50,7 +43,7 @@ YELP_API_KEY=YOUR KEY
 ATLAS_URI=YOUR MONGODB CONNECTION STRING ONLY STRING
 ```
 
-Run seed.py to retrieve restaurant data from Yelp API and load it into MongoDB:
+Run seed.js to retrieve restaurant data from Yelp API and load it into MongoDB:
 ```
 $ node seed.js
 ```
