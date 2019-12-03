@@ -10,13 +10,13 @@ const Restaurants = ({ cityRestaurants, cityName }) => {
   return (
     <Modal.Body style={{maxheight: 'calc(100vh - 210px)', overflowy: 'auto'}}>
       <Container>
-            <CardDeck>
-              {
-                cityRestaurants.map((restaurant, index) =>
-                  <RestaurantItem restaurant={restaurant} cityName={cityName} key={index} />
-                )
-              }
-            </CardDeck>
+        <CardDeck>
+          {
+            cityRestaurants.map((restaurant, index) =>
+              <RestaurantItem restaurant={restaurant} cityName={cityName} key={index} />
+            )
+          }
+        </CardDeck>
       </Container>
     </Modal.Body>
   );

@@ -8,7 +8,7 @@ import Modal from 'react-bootstrap/Modal'
 
 const Bookmarks = () => {
   const bookmarksArray = useSelector((state) => state.bookmarks.bookmarks);
-  const [ bookmarks, setBookmarks] = useState();
+  const [ bookmarks, setBookmarks ] = useState();
 
   useEffect(() => {
     const getBookmarks = () => {

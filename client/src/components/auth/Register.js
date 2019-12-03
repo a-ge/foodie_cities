@@ -4,9 +4,9 @@ import { addUser } from '../../actions/userActions';
 import { useHistory } from 'react-router-dom';
 
 const Register = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [ username, setUsername ] = useState('');
+  const [ email, setEmail ] = useState('');
+  const [ password, setPassword ] = useState('');
   const citiesArray = useSelector((state) => state.restaurants.restaurants);
 
   let history = useHistory();

@@ -6,8 +6,9 @@ import { useHistory } from 'react-router-dom';
 const Login = () => {
   const isLogged = useSelector((state) => state.users.isLogged);
 
-  const dispatch = useDispatch();
   let history = useHistory();
+
+  const dispatch = useDispatch();
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -35,7 +36,8 @@ const Login = () => {
 
   return (
     <div>
-      {isLogged ? <div> You are logged in </div> :
+      {
+        isLogged ? <div> You are logged in </div> :
         <div className='form-container'>
           <h1>
             Account <span className='text-primary'>Login</span>

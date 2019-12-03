@@ -16,7 +16,8 @@ const Logout = () => {
 
   return (
     <div>
-      {isLogged ?
+      {
+        isLogged ?
         <div className='form-container'>
           <h1>Are you sure you want to log out?</h1>
           <form onSubmit={onSubmit}>

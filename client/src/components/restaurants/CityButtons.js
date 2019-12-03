@@ -7,9 +7,9 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 
 const CityButtons = () => {
-  const [cityIndex, setCityIndex] = useState(0);
+  const [ cityIndex, setCityIndex ] = useState(0);
   const citiesArray = useSelector((state) => state.restaurants.restaurants);
-  
+
   const dispatch = useDispatch();
 
   useEffect(() => {
