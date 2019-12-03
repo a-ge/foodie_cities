@@ -14,7 +14,6 @@ Foodie Cities is a full stack MERN (MongoDB, Express, React/Redux, NodeJS) web a
 
 <a name="installation"/></a>
 ## Setup/Installation
-Get Client ID and Key from [Yelp](https://www.yelp.com/fusion)
 
 On local machine, clone the Foodie Cities repository:
 ```
@@ -30,7 +29,8 @@ $ cd client
 $ npm install
 $ cd ..
 ```
-
+Get Client ID and Key from [Yelp](https://www.yelp.com/fusion)
+<br>
 Go to [MongoDB](https://www.mongodb.com/), login or create an account.
   - Follow instructions to build a new cluster.
   - Under Security, click 'Database Access' and follow instructions to add new user.
