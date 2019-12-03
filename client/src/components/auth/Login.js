@@ -24,15 +24,13 @@ const Login = () => {
     })
     .then((res) => res.json())
     .then((json) => {
-      console.log(json)
       if (json === 'User Found'){
-      dispatch(loginUser(formUsername));
-      history.push('/');
+        dispatch(loginUser(formUsername));
+        history.push('/');
       } else {
-        alert("Username or password is incorrect.")
+        alert("Username or password is incorrect.");
       }
     })
-
   }
 
   return (
