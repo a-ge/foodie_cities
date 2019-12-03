@@ -25,21 +25,13 @@ const Login = () => {
     .then((res) => res.json())
     .then((json) => {
       console.log(json)
+      if (json === 'User Found'){
       dispatch(loginUser(formUsername));
       history.push('/');
+      }
     })
 
-      // const response = await fetch(`http://localhost:5000/users/login`, {
-      //   method: 'POST',
-      //   body: JSON.stringify(formData),
-      //   headers: {'Content-Type': 'application/json'}
-      // })
-
-      // const json = await response.json()
-      // console.log(json)
-
-      // reroute to Home
-    }
+  }
 
   return (
     <div>

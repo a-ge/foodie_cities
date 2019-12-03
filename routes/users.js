@@ -34,10 +34,10 @@ router.route('/login').post(async (req, res) => {
     }
 
     if (passwordInput !== findUser[0].password) {
-      return res.status(400).json({ msg: 'Invalid Credentials' });
+      return res.status(400).json('Invalid Credentials');
 
     } else {
-        return res.json('user found');
+      return res.json('User Found');
       }
 
     } catch (err) {
