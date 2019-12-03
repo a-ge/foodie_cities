@@ -11,28 +11,28 @@ const client = yelp.client(API_KEY);
 const locations = ['San Francisco, CA', 'New York, NY', 'Atlanta, GA'];
 
 function callYelp(i) {
-    const response = client.search({
-      term: 'restaurants',
-      location: locations[i],
-      limit: 10,
-      sort_by: 'review_count'
-    }).catch(e => {
-      console.log(e);
-    });
-    return response;
+  const response = client.search({
+    term: 'restaurants',
+    location: locations[i],
+    limit: 10,
+    sort_by: 'review_count'
+  }).catch(e => {
+    console.log(e);
+  });
+  return response;
 };
 
 class EasyHTTP {
-    async post(url, data) {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {'Content-type': 'application/json'},
-        body: JSON.stringify(data)
-      });
+  async post(url, data) {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {'Content-type': 'application/json'},
+      body: JSON.stringify(data)
+    });
 
-      const resData = await response.json();
-      return resData;
-    }
+    const resData = await response.json();
+    return resData;
+  }
 }
 
 const http = new EasyHTTP;
