@@ -23,7 +23,7 @@ const BookmarkItem = ({ bookmark, cityName }) => {
   };
 
   return (
-    <Container >
+    <Container className="bookmarkItem">
       <Card>
         <Row>
           <Col xs={6} md={4}>
