@@ -9,9 +9,10 @@ const Navbar = ({ title, icon }) => {
   return (
     <div className='navbar'>
       <h1>
-        <img src={mySvg} style={{width:40, height:40}}/>
+        <img src={mySvg} style={{width:55, height:55, padding: '5px'}} alt='Unavailable'/>
         {title}
       </h1>
+      <br></br>
       <ul>
         <li>
             <Link to='/'>Home</Link>
