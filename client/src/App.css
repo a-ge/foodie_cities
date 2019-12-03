@@ -37,6 +37,10 @@
   margin: 0.2rem 0;
 }
 
+.navLink {
+  color: white;
+}
+
 .ratings {
   position: relative;
   vertical-align: middle;

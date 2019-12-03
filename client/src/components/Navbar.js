@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import mySvg from '../food.svg'
+import mySvg from '../static/food.svg'
 
 const Navbar = ({ title, icon }) => {
   const isLogged = useSelector((state) => state.users.isLogged);
@@ -15,16 +15,16 @@ const Navbar = ({ title, icon }) => {
       <br></br>
       <ul>
         <li>
-            <Link to='/'>Home</Link>
+            <Link className='navLink' to='/'>Home</Link>
         </li>
         <li>
-            <Link to='/about'>About</Link>
+            <Link className='navLink' to='/about'>About</Link>
         </li>
         <li>
-        {isLogged ? <Link to='/logout'>Logout</Link> : <Link to='/login'>Login</Link>}
+        {isLogged ? <Link className='navLink' to='/logout'>Logout</Link> : <Link className='navLink' to='/login'>Login</Link>}
         </li>
         <li>
-        {isLogged ? '' : <Link to='/register'>Register</Link>}
+        {isLogged ? '' : <Link className='navLink' to='/register'>Register</Link>}
         </li>
       </ul>
     </div>
