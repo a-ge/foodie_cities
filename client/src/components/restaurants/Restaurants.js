@@ -10,16 +10,17 @@ const Restaurants = ({ cityRestaurants, cityName }) => {
   const loading = useSelector((state) => state.users.loading);
 
   return (
-    <Modal.Body style={{'max-height': 'calc(100vh - 210px)', 'overflow-y': 'auto'}}>
+    <Modal.Body style={{maxheight: 'calc(100vh - 210px)', overflowy: 'auto'}}>
       <Container>
-        {loading ? <div>loading...</div> :
-          <CardDeck>
-            {
-              cityRestaurants.map((restaurant, index) =>
-                <RestaurantItem restaurant={restaurant} cityName={cityName} key={index} />
-              )
-            }
-          </CardDeck>
+        {
+          loading ? <div>loading...</div> :
+            <CardDeck>
+              {
+                cityRestaurants.map((restaurant, index) =>
+                  <RestaurantItem restaurant={restaurant} cityName={cityName} key={index} />
+                )
+              }
+            </CardDeck>
         }
       </Container>
     </Modal.Body>
