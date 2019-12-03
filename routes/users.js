@@ -29,10 +29,6 @@ router.route('/login').post(async (req, res) => {
   try {
     let findUser = await User.find({ username: usernameInput });
 
-    if (!findUser) {
-      return res.status(400).json('Invalid Username');
-    }
-
     if (passwordInput !== findUser[0].password) {
       return res.status(400).json('Invalid Password');
 
@@ -42,7 +38,7 @@ router.route('/login').post(async (req, res) => {
 
     } catch (err) {
       console.error(err.message);
-      res.status(500).send('Server Error');
+      return res.status(500).json('Server Error');
     }
 });
 
