@@ -3,7 +3,6 @@ Foodie Cities is a full stack MERN (MongoDB, Express, React/Redux, NodeJS) web a
 
 ## Table of Contents
 * [Tech Stack](#techstack)<br/>
-* [Requirements](#Requirements)<br/>
 * [Setup/Installation](#installation)<br/>
 * [Demo](#demo)<br/>
 
@@ -12,12 +11,6 @@ Foodie Cities is a full stack MERN (MongoDB, Express, React/Redux, NodeJS) web a
 **Frontend:** Javascript, React, Redux, React-Bootstrap, HTML, CSS, Node-Fetch</br>
 **Backend:** Node, Express, MongoDB Atlas, Mongoose<br/>
 **APIs:** Yelp<br/>
-
-<a name="Requirements"/></a>
-## Requirements
-MongoDB shell version v4.2.1
-<br>
-Node v10.16.0
 
 <a name="installation"/></a>
 ## Setup/Installation
@@ -31,7 +24,7 @@ In the foodie_cities root directory, install dependencies:
 ```
 $ npm install
 ```
-Then also install React dependencies in the client folder:
+Then also install dependencies from the package.json file in the client folder:
 ```
 $ cd client
 $ npm install
@@ -50,7 +43,7 @@ YELP_API_KEY=YOUR KEY
 ATLAS_URI=YOUR MONGODB CONNECTION STRING ONLY STRING
 ```
 
-Run seed.py to retrieve restaurant data from Yelp API and load it into MongoDB:
+Run seed.js to retrieve restaurant data from Yelp API and load it into MongoDB:
 ```
 $ node seed.js
 ```
