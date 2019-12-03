@@ -27,14 +27,14 @@ const BookmarkItem = ({ bookmark, cityName }) => {
       <Card>
         <Row>
           <Col xs={6} md={4}>
-            <Card.Link href={bookmark.yelpUrl}>
-              <Card.Img variant="top" src={bookmark.imageUrl} href={bookmark.yelpUrl}
+            <Card.Link href={bookmark.yelpUrl} target="_blank">
+              <Card.Img variant="top" src={bookmark.imageUrl}
                 style={{ height:'10vw', objectfit:'cover' }}/>
             </Card.Link>
           </Col>
           <Col xs={12} md={8}>
             <Card.Body>
-              <Card.Link href={bookmark.yelpUrl}>
+              <Card.Link href={bookmark.yelpUrl} target="_blank">
                 <Card.Title>{bookmark.restaurantName}</Card.Title>
               </Card.Link>
               <Button className='btn btn-danger btn-sm' onClick={deleteMark}>Delete</Button>
