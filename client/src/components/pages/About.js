@@ -3,10 +3,10 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
 
-import ashImg from '../../static/ash.jpg'
-import jessImg from '../../static/jess.jpg'
-import github from '../../static/github-logo.png'
-import linkedin from '../../static/linkedIn_logo_initials.png'
+import ashImg from '../../static/ash.jpg';
+import jessImg from '../../static/jess.jpg';
+import github from '../../static/github-logo.png';
+import linkedin from '../../static/linkedIn_logo_initials.png';
 
 const About = () => {
   return (
