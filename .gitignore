@@ -13,3 +13,6 @@ yarn-debug.log*
 yarn-error.log*%
 
 .env
+
+/client/src/static/ash.jpg
+/client/src/static/jess.jpg
