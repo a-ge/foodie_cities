@@ -11,7 +11,6 @@ import Col from 'react-bootstrap/Col';
 const Home = () => {
   const user = useSelector((state) => state.users.user);
   const isLogged = useSelector((state) => state.users.isLogged);
-  const loading = useSelector((state) => state.users.loading);
 
   const dispatch = useDispatch();
 
@@ -24,15 +23,11 @@ const Home = () => {
 
   return (
     <Row>
-      <Col>
+      <Col xs={11} md={7}>
         <CityButtons />
       </Col>
-      <Col>
-        {
-          loading ? <div>loading...</div>
-            : isLogged ? <Bookmarks />
-              : <LoggedOutBookmarks />
-        }
+      <Col xs={7} md={5}>
+        {isLogged ? <Bookmarks /> : <LoggedOutBookmarks />}
       </Col>
     </Row>
   );
