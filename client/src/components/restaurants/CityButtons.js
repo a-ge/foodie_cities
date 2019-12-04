@@ -23,7 +23,7 @@ const CityButtons = () => {
     const cityObject = citiesArray[cityIndex]
 
     if (!cityObject) {
-      return <div>No restaurants</div>
+      return <div style={{ width: 1060, padding: '15px' }}>Loading restaurants...</div>
     } else {
       const cityName = cityObject.cityName
       const cityRestaurants = cityObject.restaurants

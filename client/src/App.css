@@ -42,17 +42,17 @@
 }
 
 .center {
-  margin: 0;
-  position: absolute;
+  /* margin: 0;
+  position: absolute; */
   top: 10%;
-  left: 50%;
+  /* left: 50%;
   -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }
 
 .message {
   font-weight: 30px ;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .ratings {
