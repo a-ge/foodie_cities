@@ -29,7 +29,7 @@ const BookmarkItem = ({ bookmark, cityName }) => {
           <Col xs={6} md={4}>
             <Card.Link href={bookmark.yelpUrl} target="_blank">
               <Card.Img variant="top" src={bookmark.imageUrl}
-                style={{ height:'10vw', objectfit:'cover' }}/>
+                style={{height:'10vw'}}/>
             </Card.Link>
           </Col>
           <Col xs={12} md={8}>

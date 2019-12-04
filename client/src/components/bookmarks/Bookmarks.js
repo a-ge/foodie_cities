@@ -42,7 +42,7 @@ const Bookmarks = () => {
   return (
     <div>
       <h4>BOOKMARKS</h4>
-      <Modal.Body style={{maxheight: 'calc(100vh - 210px)', overflowy: 'auto'}}>
+      <Modal.Body style={{maxHeight: 'calc(100vh - 210px)', overflowY: 'auto'}}>
         <Table>
           <tbody>
             {bookmarks}

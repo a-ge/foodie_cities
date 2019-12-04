@@ -8,7 +8,7 @@ import Modal from 'react-bootstrap/Modal'
 const Restaurants = ({ cityRestaurants, cityName }) => {
 
   return (
-    <Modal.Body style={{maxheight: 'calc(100vh - 210px)', overflowy: 'auto'}}>
+    <Modal.Body style={{maxHeight: 'calc(100vh - 210px)', overflowY: 'auto'}}>
       <Container>
         <CardDeck>
           {
