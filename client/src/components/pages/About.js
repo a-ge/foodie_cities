@@ -21,7 +21,7 @@ const About = () => {
               a specific city. The application utilizes the Yelp API to retrieve restaurant
               data. Popular restaurants are those with the highest number of 'review counts'.
               Users can also bookmark restaurants if they are logged in their account. &nbsp;
-              <a href='https://github.com/a-ge/foodie_cities' target="_blank">
+              <a href='https://github.com/a-ge/foodie_cities' target="_blank" rel="noopener noreferrer">
                 <img src={github} style={{width:20, height:20}} alt='Unavailable'/>
               </a>
               <br/>
@@ -37,11 +37,11 @@ const About = () => {
           <img src={ashImg} style={{width:345, height:400, padding: '5px'}} alt='Unavailable'/>
           <br/>
           &nbsp; Ashley Gesmundo &nbsp;
-          <a href='https://github.com/a-ge' target="_blank">
+          <a href='https://github.com/a-ge' target="_blank" rel="noopener noreferrer">
             <img src={github} style={{width:20, height:20}} alt='Unavailable'/>
           </a>
           &nbsp;
-          <a href='https://www.linkedin.com/in/ashleymgesmundo/' target="_blank">
+          <a href='https://www.linkedin.com/in/ashleymgesmundo/' target="_blank" rel="noopener noreferrer">
             <img src={linkedin} style={{width:20, height:20}} alt='Unavailable'/>
           </a>
         </Col>
@@ -49,11 +49,11 @@ const About = () => {
           <img src={jessImg} style={{width:400, height:400, padding: '5px'}} alt='Unavailable'/>
           <br/>
           &nbsp; Jessica Ho &nbsp;
-          <a href='https://github.com/jessicahojh' target="_blank">
+          <a href='https://github.com/jessicahojh' target="_blank" rel="noopener noreferrer">
             <img src={github} style={{width:20, height:20}} alt='Unavailable'/>
           </a>
           &nbsp;
-          <a href='https://www.linkedin.com/in/jessicahojh/' target="_blank">
+          <a href='https://www.linkedin.com/in/jessicahojh/' target="_blank" rel="noopener noreferrer">
             <img src={linkedin} style={{width:20, height:20}} alt='Unavailable'/>
           </a>
         </Col>
