@@ -41,18 +41,12 @@
   color: white;
 }
 
-.center {
-  /* margin: 0;
-  position: absolute; */
-  top: 10%;
-  /* left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%); */
-}
-
 .message {
   font-weight: 30px ;
   font-size: 20px;
+  height: 600px;
+  line-height: 600px;
+  padding-left: 150px;
 }
 
 .ratings {
