@@ -20,10 +20,6 @@ connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 });
 
-connection.on('error', (err) => { 
-  console.log('MongoDB connection error: ', err); 
-});
-
 const usersRouter = require('./routes/users');
 const bookmarksRouter = require('./routes/bookmarks');
 const restaurantsRouter = require('./routes/restaurants');
