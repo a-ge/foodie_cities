@@ -18,7 +18,7 @@ const Login = () => {
 
     const formData = {"username": formUsername, "password": formPassword}
 
-    fetch(`/users/login`, {
+    fetch('/users/login', {
       method: 'POST',
       body: JSON.stringify(formData),
       headers: {'Content-Type': 'application/json'}
