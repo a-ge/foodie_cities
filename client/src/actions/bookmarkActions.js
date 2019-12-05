@@ -7,7 +7,7 @@ import {
 
 // Get user's bookmarks from database.
 export const getDbBookmarks = user => async dispatch => {
-  const res = await fetch(`http://localhost:5000/bookmarks/${user}`);
+  const res = await fetch(`/bookmarks/${user}`);
   const data = await res.json();
 
   dispatch({
@@ -18,7 +18,7 @@ export const getDbBookmarks = user => async dispatch => {
 
 // Add bookmark for user.
 export const addBookmark = restaurant => async dispatch => {
-  const res = await fetch(`http://localhost:5000/bookmarks/add`, {
+  const res = await fetch(`/bookmarks/add`, {
     method: 'POST',
     body: JSON.stringify(restaurant),
     headers: {'Content-Type': 'application/json'}
@@ -34,7 +34,7 @@ export const addBookmark = restaurant => async dispatch => {
 
 // Delete bookmark for user.
 export const deleteBookmark = restaurant => async dispatch => {
-  const res = await fetch(`http://localhost:5000/bookmarks/delete`, {
+  const res = await fetch(`/bookmarks/delete`, {
     method: 'POST',
     body: JSON.stringify(restaurant),
     headers: {'Content-Type': 'application/json'}

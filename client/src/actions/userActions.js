@@ -6,7 +6,7 @@ import {
 
 // Register User to server
 export const addUser = user => async dispatch => {
-  await fetch('http://localhost:3000/users/add', {
+  await fetch('/users/add', {
     method: 'POST',
     body: JSON.stringify(user),
     headers: {

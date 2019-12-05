@@ -3,7 +3,7 @@ import {
 } from './types';
 
 export const getDbRestaurants = () => async dispatch => {
-  const res = await fetch('http://localhost:5000/restaurants/');
+  const res = await fetch('/restaurants/');
   const data = await res.json();
 
   dispatch({
